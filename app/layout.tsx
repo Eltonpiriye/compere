@@ -4,6 +4,7 @@ import "./globals.css";
 import Transition from "@/components/Transition";
 import { HoverProvider } from "@/context/hover-context";
 import CustomCursor from "@/components/custom-cusor";
+import { TransitionProvider } from "@/components/providers/page-transition-provider";
 
 const productSans = localFont({
   src: "../public/fonts/product-sans-full/ProductSans-Thin.ttf",
@@ -31,7 +32,9 @@ export default function RootLayout({
         className={`${tuskerGrotesk.variable} ${productSans.variable} antialiased w-screen overflow-hidden`}
       >
         <Transition>
-          <HoverProvider>{children}</HoverProvider>
+          <TransitionProvider>
+            <HoverProvider>{children}</HoverProvider>
+          </TransitionProvider>
           <CustomCursor />
         </Transition>
       </body>

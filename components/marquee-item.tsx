@@ -1,8 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import type React from "react";
+
 import { useHover } from "@/context/hover-context";
 import LetterAnimation from "./letter-animation";
+import { useRouter } from "next/navigation";
+import { useState, useRef } from "react";
 
 export default function MarqueeItem({
   href,
@@ -11,15 +14,55 @@ export default function MarqueeItem({
   href: string;
   label: string;
 }) {
+  const router = useRouter();
   const { hoveredItem, setHoveredItem } = useHover();
+  const [isDragging, setIsDragging] = useState(false);
+  const startPosRef = useRef<{ x: number; y: number } | null>(null);
 
   const isHovered = hoveredItem === label;
   const isAnyHovered = hoveredItem !== null;
 
+  // Track mouse/touch down position
+  const handlePointerDown = (e: React.PointerEvent) => {
+    startPosRef.current = { x: e.clientX, y: e.clientY };
+    setIsDragging(false);
+  };
+
+  // Track mouse/touch move to detect dragging
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!startPosRef.current) return;
+
+    const deltaX = Math.abs(e.clientX - startPosRef.current.x);
+    const deltaY = Math.abs(e.clientY - startPosRef.current.y);
+
+    // If moved more than 5px in any direction, consider it a drag
+    if (deltaX > 5 || deltaY > 5) {
+      setIsDragging(true);
+    }
+  };
+
+  // Handle click/navigation only if not dragging
+  const handleClick = (e: React.MouseEvent) => {
+    if (isDragging) {
+      e.preventDefault();
+      return;
+    }
+    router.push(href);
+  };
+
+  // Reset on pointer up
+  const handlePointerUp = () => {
+    startPosRef.current = null;
+  };
+
   return (
-    <Link
-      href={href}
-      className="flex items-center mx-10"
+    <div
+      onClick={handleClick}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
+      className="flex items-center mx-10 cursor-pointer"
       onMouseEnter={() => setHoveredItem(label)}
       onMouseLeave={() => setHoveredItem(null)}
     >
@@ -30,6 +73,6 @@ export default function MarqueeItem({
         }`}
         isHovered={isHovered}
       />
-    </Link>
+    </div>
   );
 }
