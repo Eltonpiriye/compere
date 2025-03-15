@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Transition from "@/components/Transition";
 import { HoverProvider } from "@/context/hover-context";
 import CustomCursor from "@/components/custom-cusor";
 import { TransitionProvider } from "@/components/providers/page-transition-provider";
+import Transition from "@/components/Transition";
 
 const productSans = localFont({
   src: "../public/fonts/product-sans-full/ProductSans-Thin.ttf",
@@ -35,8 +35,8 @@ export default function RootLayout({
           <TransitionProvider>
             <HoverProvider>{children}</HoverProvider>
           </TransitionProvider>
-          <CustomCursor />
         </Transition>
+        <CustomCursor />
       </body>
     </html>
   );

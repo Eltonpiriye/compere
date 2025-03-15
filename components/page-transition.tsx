@@ -3,11 +3,7 @@
 import { useEffect } from "react";
 import { motion, useSpring, useTransform } from "framer-motion";
 
-export default function PageTransition({
-  isInitialLoad = false,
-}: {
-  isInitialLoad?: boolean;
-}) {
+export default function PageTransition() {
   // Use a spring for smooth, natural animation
   const springProgress = useSpring(0, {
     stiffness: 80,
@@ -48,7 +44,7 @@ export default function PageTransition({
     }, 50);
 
     // For initial load, hold longer to give content time to load
-    const holdTime = isInitialLoad ? 1500 : 500;
+    const holdTime = 700;
 
     // Animate to completion after a delay
     const animateOut = setTimeout(() => {
@@ -59,7 +55,7 @@ export default function PageTransition({
       clearTimeout(animateIn);
       clearTimeout(animateOut);
     };
-  }, [springProgress, isInitialLoad]);
+  }, [springProgress]);
 
   return (
     <motion.div
@@ -88,7 +84,9 @@ export default function PageTransition({
 
         {/* Logo */}
         <motion.div style={{ opacity: logoOpacity }} className="relative z-10">
-          <h1 className="font-cursive text-5xl text-white">field day</h1>
+          <h1 className="text-5xl text-white font-tusker-grotesk">
+            ELTON PIRIYE
+          </h1>
         </motion.div>
       </motion.div>
     </motion.div>

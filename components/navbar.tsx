@@ -1,8 +1,11 @@
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/introduction", label: "Introduction" },
@@ -70,8 +73,15 @@ export function NavbarItem({
   href,
   children,
 }: Readonly<{ href: string; children: React.ReactNode }>) {
+  const pathname = usePathname();
+
   return (
-    <Link href={href} className="hover:line-through font-bold uppercase">
+    <Link
+      href={href}
+      className={`hover:line-through ${
+        pathname.startsWith(href) ? "line-through" : ""
+      } font-bold uppercase`}
+    >
       {children}
     </Link>
   );

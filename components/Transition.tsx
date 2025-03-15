@@ -4,18 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const animation = {
-  initial: { y: "-100%" },
-  animate: { y: 0 },
-  exit: { y: "100%" },
-};
-
-const transition = {
-  type: "spring",
-  stiffness: 200,
-  damping: 15,
-};
-
 export default function Transition({
   children,
 }: {
@@ -33,13 +21,7 @@ export default function Transition({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial="initial"
-        animate="animate"
-        variants={animation}
-        transition={transition}
-      >
+      <motion.div key={pathname} initial="initial" animate="animate">
         {children}
       </motion.div>
     </AnimatePresence>

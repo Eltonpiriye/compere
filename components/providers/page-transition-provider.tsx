@@ -32,7 +32,6 @@ export function TransitionProvider({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [nextPath, setNextPath] = useState<string | null>(null);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const [key, setKey] = useState(0); // Add a key to force re-render
   const router = useRouter();
   const pathname = usePathname();
 
@@ -45,7 +44,7 @@ export function TransitionProvider({
       const timer = setTimeout(() => {
         setIsInitialLoad(false);
         setIsTransitioning(false);
-      }, 2500); // Enough time for the full animation to complete
+      }, 1500); // Enough time for the full animation to complete
 
       return () => clearTimeout(timer);
     }
@@ -56,9 +55,6 @@ export function TransitionProvider({
     if (nextPath && !isInitialLoad) {
       // Start the transition
       setIsTransitioning(true);
-
-      // Increment key to force re-render of PageTransition
-      setKey((prev) => prev + 1);
 
       // Navigate to the new page
       const navigationTimer = setTimeout(() => {
@@ -97,9 +93,7 @@ export function TransitionProvider({
 
   return (
     <TransitionContext.Provider value={{ startTransition }}>
-      {isTransitioning && (
-        <PageTransition key={key} isInitialLoad={isInitialLoad} />
-      )}
+      {isTransitioning && <PageTransition />}
       <div className={isInitialLoad ? "invisible" : "visible"}>{children}</div>
     </TransitionContext.Provider>
   );
