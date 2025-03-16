@@ -85,7 +85,7 @@ export default function SingleEventPageFromCms() {
                 ARM LABS - TECHSTARS
               </h1>
             </motion.div>
-            <p className="px-4 md:px-12 pb-8 text-[32px] font-bold">
+            <p className="px-4 md:px-12 pb-8 md:text-[32px] font-bold">
               I WAS THE COMPERE FOR AN EXCLUSIVE GATHERING OF OVER 100 TOP
               INVESTORS AND MENTORS, AND 150+ AMBITIOUS FOUNDERS FROM ACROSS
               AFRICA. THE DEMO DAY HIGHLIGHTED 12 STARTUPS WITH EMERGING
