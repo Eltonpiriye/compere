@@ -17,16 +17,33 @@ export default function PageTransition() {
     [0, 0.5, 1],
     ["100%", "0%", "-100%"]
   );
+
+  // Cyan head comes first, then black head
   const cyanHeadHeight = useTransform(
     springProgress,
-    [0, 0.25, 0.5, 0.75, 1],
-    [0, 100, 0, 0, 0]
+    [0, 0.2, 0.3, 0.5, 0.75, 1],
+    [0, 150, 75, 0, 0, 0]
   );
+
+  const blackHeadHeight = useTransform(
+    springProgress,
+    [0, 0.2, 0.3, 0.5, 0.75, 1],
+    [0, 80, 40, 0, 0, 0]
+  );
+
+  // Black tail comes first, then cyan tail
+  const blackTailHeight = useTransform(
+    springProgress,
+    [0, 0.25, 0.5, 0.7, 0.8, 1],
+    [0, 0, 0, 40, 80, 0]
+  );
+
   const cyanTailHeight = useTransform(
     springProgress,
-    [0, 0.25, 0.5, 0.75, 1],
-    [0, 0, 0, 100, 0]
+    [0, 0.25, 0.5, 0.7, 0.8, 1],
+    [0, 0, 0, 75, 150, 0]
   );
+
   const logoOpacity = useTransform(
     springProgress,
     [0, 0.2, 0.8, 1],
@@ -67,24 +84,42 @@ export default function PageTransition() {
         className="absolute inset-0 flex items-center justify-center"
         style={{ y: slideY }}
       >
-        {/* Black background */}
-        <div className="absolute inset-0 bg-black">
-          {/* Cyan head - leads the sliding in */}
-          <motion.div
-            className="absolute top-0 left-0 right-0 bg-cyan-500"
-            style={{ height: cyanHeadHeight }}
-          />
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 right-0">
+            {/* Cyan head - leads the sliding in */}
+            <motion.div
+              className="bg-cyan-500"
+              style={{ height: cyanHeadHeight }}
+            />
 
-          {/* Cyan tail - appears when sliding out */}
-          <motion.div
-            className="absolute bottom-0 left-0 right-0 bg-cyan-500"
-            style={{ height: cyanTailHeight }}
-          />
+            {/* Black head - follows the cyan head */}
+            <motion.div
+              className="bg-black"
+              style={{ height: blackHeadHeight }}
+            />
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0">
+            {/* Black tail - appears first when sliding out */}
+            <motion.div
+              className="bg-black"
+              style={{ height: blackTailHeight }}
+            />
+
+            {/* Cyan tail - follows the black tail */}
+            <motion.div
+              className="bg-cyan-500"
+              style={{ height: cyanTailHeight }}
+            />
+          </div>
         </div>
 
-        {/* Logo */}
-        <motion.div style={{ opacity: logoOpacity }} className="relative z-10">
-          <h1 className="text-5xl text-white font-tusker-grotesk">
+        {/* Logo with white background and black text */}
+        <motion.div
+          style={{ opacity: logoOpacity }}
+          className="relative z-10 bg-white px-8 py-4 rounded-md"
+        >
+          <h1 className="text-5xl text-black font-tusker-grotesk">
             ELTON PIRIYE
           </h1>
         </motion.div>

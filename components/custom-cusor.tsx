@@ -84,15 +84,15 @@ export default function CustomCursor() {
       }
 
       // Check if hovering over scrollable content
-      if (
-        element.scrollHeight > element.clientHeight ||
-        element.classList.contains("scrollable") ||
-        element.closest(".scrollable")
-      ) {
-        setCursorState("scrollable");
-        setCursorText("Scroll");
-        return;
-      }
+      // if (
+      //   element.scrollHeight > element.clientHeight ||
+      //   element.classList.contains("scrollable") ||
+      //   element.closest(".scrollable")
+      // ) {
+      //   setCursorState("scrollable");
+      //   setCursorText("Scroll");
+      //   return;
+      // }
 
       // Check if hovering over copyable text
       if (
@@ -110,16 +110,8 @@ export default function CustomCursor() {
         element.closest(".marquee")
       ) {
         // If already in marquee area but now hovering directly over draggable content
-        if (
-          element.classList.contains("marquee-content") ||
-          element.closest(".marquee-content")
-        ) {
-          setCursorState("marquee-hover");
-          setCursorText("Drag");
-        } else {
-          setCursorState("marquee");
-          setCursorText("Hover");
-        }
+        setCursorState("marquee-hover");
+        setCursorText("Drag");
         return;
       }
 
@@ -154,6 +146,8 @@ export default function CustomCursor() {
         return 80; // 40px radius
       case "scrollable":
         return 50; // 25px radius
+      case "marquee-hover":
+        return 80; // 25px radius
       case "copy":
         return 60; // 30px radius
       case "loading":
@@ -181,6 +175,8 @@ export default function CustomCursor() {
       case "video":
         return "bg-blue-500/30 backdrop-blur-sm";
       case "scrollable":
+        return "bg-blue-500/30 backdrop-blur-sm";
+      case "marquee-hover":
         return "bg-blue-500/30 backdrop-blur-sm";
       case "copy":
         return "bg-blue-500/30 backdrop-blur-sm";

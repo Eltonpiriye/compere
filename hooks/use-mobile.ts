@@ -1,19 +1,46 @@
-import * as React from "react"
+"use client";
 
-const MOBILE_BREAKPOINT = 768
+import { useState, useEffect } from "react";
 
-export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+/**
+ * A hook that detects if the current device is a mobile device
+ * based on screen width and user agent
+ *
+ * @returns {boolean} True if the current device is a mobile device
+ */
+export function useMobile(): boolean {
+  const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-    const onChange = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    }
-    mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    return () => mql.removeEventListener("change", onChange)
-  }, [])
+  useEffect(() => {
+    // Initial check function
+    const checkMobile = () => {
+      // Check if window is defined (client-side)
+      if (typeof window === "undefined") return false;
 
-  return !!isMobile
+      // Check screen width (consider devices under 768px as mobile)
+      const mobileByWidth = window.innerWidth < 768;
+
+      // Check user agent for mobile devices
+      const mobileByUserAgent =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+
+      // Consider it mobile if either condition is true
+      setIsMobile(mobileByWidth || mobileByUserAgent);
+    };
+
+    // Run the check immediately
+    checkMobile();
+
+    // Set up event listener for window resize
+    window.addEventListener("resize", checkMobile);
+
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  return isMobile;
 }

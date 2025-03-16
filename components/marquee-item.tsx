@@ -5,7 +5,8 @@ import type React from "react";
 import { useHover } from "@/context/hover-context";
 import LetterAnimation from "./letter-animation";
 import { useRouter } from "next/navigation";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useMobile } from "@/hooks/use-mobile";
 
 export default function MarqueeItem({
   href,
@@ -18,9 +19,23 @@ export default function MarqueeItem({
   const { hoveredItem, setHoveredItem } = useHover();
   const [isDragging, setIsDragging] = useState(false);
   const startPosRef = useRef<{ x: number; y: number } | null>(null);
+  const isMobile = useMobile();
+
+  // Double click handling
+  const [clickCount, setClickCount] = useState(0);
+  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const isHovered = hoveredItem === label;
   const isAnyHovered = hoveredItem !== null;
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (clickTimerRef.current) {
+        clearTimeout(clickTimerRef.current);
+      }
+    };
+  }, []);
 
   // Track mouse/touch down position
   const handlePointerDown = (e: React.PointerEvent) => {
@@ -41,13 +56,36 @@ export default function MarqueeItem({
     }
   };
 
-  // Handle click/navigation only if not dragging
+  // Handle click/navigation with double-click support for mobile
   const handleClick = (e: React.MouseEvent) => {
     if (isDragging) {
       e.preventDefault();
       return;
     }
-    router.push(href);
+
+    if (isMobile) {
+      // Implement double-click for mobile
+      setClickCount((prev) => prev + 1);
+
+      if (clickCount === 0) {
+        // First click - set timer
+        if (clickTimerRef.current) {
+          clearTimeout(clickTimerRef.current);
+        }
+
+        clickTimerRef.current = setTimeout(() => {
+          setClickCount(0);
+        }, 300); // 300ms double-click threshold
+      } else {
+        // Second click - navigate
+        clearTimeout(clickTimerRef.current as NodeJS.Timeout);
+        setClickCount(0);
+        router.push(href);
+      }
+    } else {
+      // Desktop behavior - single click
+      router.push(href);
+    }
   };
 
   // Reset on pointer up

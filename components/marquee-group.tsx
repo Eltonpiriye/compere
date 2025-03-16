@@ -5,6 +5,7 @@ import MarqueeItem from "./marquee-item";
 import { MARQUEE_LIST } from "@/lib/consts";
 import { useHover } from "@/context/hover-context";
 import { useEffect, useRef, useState } from "react";
+import { useMobile } from "@/hooks/use-mobile";
 
 export default function MarqueeGroup() {
   const { hoveredItem } = useHover();
@@ -12,6 +13,7 @@ export default function MarqueeGroup() {
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+  const isMobile = useMobile();
 
   // Calculate the width of a single set of items
   useEffect(() => {
@@ -35,7 +37,7 @@ export default function MarqueeGroup() {
     controls.start({
       x: "-50%",
       transition: {
-        duration: 20,
+        duration: isMobile ? 5 : 20,
         ease: "linear",
         repeat: Number.POSITIVE_INFINITY,
         repeatType: "loop",
@@ -76,7 +78,7 @@ export default function MarqueeGroup() {
 
   return (
     <div
-      className="w-full py-5 overflow-hidden marquee-content"
+      className="w-full pt-20 py-10 overflow-hidden marquee-content"
       ref={containerRef}
     >
       <motion.div
@@ -95,8 +97,11 @@ export default function MarqueeGroup() {
         ))}
         {/* Duplicate items for seamless looping */}
         {MARQUEE_LIST.map(({ href, label }, index) => (
-          <MarqueeItem key={`duplicate-${index}`} href={href} label={label} />
+          <MarqueeItem key={index * 4} href={href} label={label} />
         ))}
+        {/* {MARQUEE_LIST.map(({ href, label }, index) => (
+          <MarqueeItem key={index * 30} href={href} label={label} />
+        ))} */}
       </motion.div>
     </div>
   );

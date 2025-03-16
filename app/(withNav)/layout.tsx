@@ -11,7 +11,7 @@ export default function WithNavLayout({
 }>) {
   const { hoveredItem } = useHover();
   return (
-    <div>
+    <div className="font-[family-name:var(--font-product-sans)] relative transition-colors duration-300 min-h-svh">
       <Navbar isWhite={!!hoveredItem} />
       {children}
     </div>
