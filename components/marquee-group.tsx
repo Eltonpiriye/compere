@@ -75,7 +75,10 @@ export default function MarqueeGroup() {
   };
 
   return (
-    <div className="w-full py-5 overflow-hidden" ref={containerRef}>
+    <div
+      className="w-full py-5 overflow-hidden marquee-content"
+      ref={containerRef}
+    >
       <motion.div
         className="flex whitespace-nowrap font-tusker-grotesk cursor-grab active:cursor-grabbing"
         animate={controls}

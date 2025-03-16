@@ -40,7 +40,7 @@ export default function InitialLoadingScreen({
           }
           return prev + 1;
         });
-      }, 30); // Speed of counter (lower = faster)
+      }, 10); // Speed of counter (lower = faster)
 
       return () => clearInterval(interval);
     }, 2000);

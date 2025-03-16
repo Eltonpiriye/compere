@@ -44,7 +44,7 @@ export default function PageTransition() {
     }, 50);
 
     // For initial load, hold longer to give content time to load
-    const holdTime = 700;
+    const holdTime = 1500;
 
     // Animate to completion after a delay
     const animateOut = setTimeout(() => {

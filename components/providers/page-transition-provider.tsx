@@ -44,7 +44,7 @@ export function TransitionProvider({
       const timer = setTimeout(() => {
         setIsInitialLoad(false);
         setIsTransitioning(false);
-      }, 1500); // Enough time for the full animation to complete
+      }, 2300); // Enough time for the full animation to complete
 
       return () => clearTimeout(timer);
     }
