@@ -78,7 +78,7 @@ export default function MarqueeGroup() {
 
   return (
     <div
-      className="w-full pt-20 py-10 overflow-hidden marquee-content"
+      className="w-screen pt-20 py-10 overflow-hidden marquee-content"
       ref={containerRef}
     >
       <motion.div

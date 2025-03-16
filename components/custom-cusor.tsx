@@ -206,13 +206,13 @@ export default function CustomCursor() {
           opacity: 1,
         }}
         initial={{ opacity: 0 }}
-        transition={{
-          x: { type: "spring", stiffness: 120, damping: 25, mass: 0.3 }, // Smoother tracking
-          y: { type: "spring", stiffness: 120, damping: 25, mass: 0.3 }, // Smoother tracking
-          width: { type: "spring", stiffness: 200, damping: 30 },
-          height: { type: "spring", stiffness: 200, damping: 30 },
-          scale: { type: "spring", stiffness: 200, damping: 30 },
-        }}
+        // transition={{
+        //   x: { type: "spring", stiffness: 120, damping: 25, mass: 0.3 }, // Smoother tracking
+        //   y: { type: "spring", stiffness: 120, damping: 25, mass: 0.3 }, // Smoother tracking
+        //   width: { type: "spring", stiffness: 200, damping: 30 },
+        //   height: { type: "spring", stiffness: 200, damping: 30 },
+        //   scale: { type: "spring", stiffness: 200, damping: 30 },
+        // }}
       >
         {cursorText && (
           <motion.span

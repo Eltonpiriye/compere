@@ -16,6 +16,11 @@ const tuskerGrotesk = localFont({
   variable: "--font-tusker-grotesk",
 });
 
+const tuskerGroteskBold = localFont({
+  src: "../public/fonts/tusker-grotesk/TuskerGrotesk-6600Semibold.woff",
+  variable: "--font-tusker-grotesk-bold",
+});
+
 export const metadata: Metadata = {
   title: "Elton Piriye",
   description: "The host with the most",
@@ -29,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${tuskerGrotesk.variable} ${productSans.variable} antialiased w-screen overflow-hidden`}
+        className={`${tuskerGrotesk.variable} ${tuskerGroteskBold.variable} ${productSans.variable} antialiased min-h-svh`}
       >
         <Transition>
           <TransitionProvider>

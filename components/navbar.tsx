@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import MaxWidthWrapper from "./max-width-wrapper";
 
 const links = [
   { href: "/introduction", label: "Introduction" },
@@ -19,32 +20,34 @@ export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header
-      className={`w-screen grid font-tusker-grotesk text-3xl tracking-wider ${
-        isWhite ? "text-[#EDECE8]" : "text-foreground"
-      } fixed w-full z-10`}
+      className={`w-svw grid font-tusker-grotesk text-3xl tracking-wider bg-background ${
+        isWhite ? "text-[#EDECE8] bg-transparent" : "text-foreground"
+      } fixed z-10`}
     >
-      <div className="flex justify-between items-center px-4 sm:px-12 py-6 ">
-        <Link href={"/"} className="font-bold">
-          ELTON PIRIYE.
-        </Link>
-        <nav>
-          <ul className="hidden md:flex space-x-6 uppercase ">
-            {links.map(({ href, label }, k) => (
-              <li key={k}>
-                <NavbarItem href={href}>{label}</NavbarItem>
-              </li>
-            ))}
-          </ul>
-          {/* Mobile Menu Button */}
-          <Button
-            size={"icon"}
-            className="md:hidden bg-blue-500 text-white rounded-md"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
-        </nav>
-      </div>
+      <MaxWidthWrapper>
+        <div className="flex justify-between items-center px-4 sm:px-12 py-6 ">
+          <Link href={"/"} className="font-bold">
+            ELTON PIRIYE.
+          </Link>
+          <nav>
+            <ul className="hidden md:flex space-x-6 uppercase ">
+              {links.map(({ href, label }, k) => (
+                <li key={k}>
+                  <NavbarItem href={href}>{label}</NavbarItem>
+                </li>
+              ))}
+            </ul>
+            {/* Mobile Menu Button */}
+            <Button
+              size={"icon"}
+              className="md:hidden bg-blue-500 text-white rounded-md"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </nav>
+        </div>
+      </MaxWidthWrapper>
 
       {/* Mobile Navigation */}
       <AnimatePresence>
