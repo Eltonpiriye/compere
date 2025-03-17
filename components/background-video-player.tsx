@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useHover } from "@/context/hover-context";
-import { MARQUEE_LIST } from "@/lib/consts";
+import { EVENT_LIST } from "@/lib/consts";
 
 export default function BackgroundVideoPlayer() {
   const { hoveredItem } = useHover();
@@ -19,10 +19,10 @@ export default function BackgroundVideoPlayer() {
       return;
     }
 
-    const item = MARQUEE_LIST.find((item) => item.label === hoveredItem);
+    const item = EVENT_LIST.find((item) => item.eventName === hoveredItem);
     if (item) {
-      // setVideoSrc(item.videoSrc);
-      setImageSrc(item.imageSrc);
+      setVideoSrc(item.mainVideo);
+      setImageSrc(item.mainImage);
     }
   }, [hoveredItem]);
 

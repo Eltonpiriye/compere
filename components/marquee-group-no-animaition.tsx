@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useAnimationControls } from "framer-motion";
-import { MARQUEE_LIST } from "@/lib/consts";
+import { EVENT_LIST } from "@/lib/consts";
 import { useHover } from "@/context/hover-context";
 import { useEffect, useRef, useState } from "react";
 import { useMobile } from "@/hooks/use-mobile";
@@ -92,16 +92,17 @@ export default function MarqueeGroupNoAnimation() {
         dragElastic={0.1}
         style={{ touchAction: "none" }}
       >
-        {MARQUEE_LIST.map(({ href, label }, index) => (
-          <MarqueeItemNoAnimation key={index} href={href} label={label} />
+        {EVENT_LIST.map(({ href, eventName }, index) => (
+          <MarqueeItemNoAnimation key={index} href={href} label={eventName} />
         ))}
         {/* Duplicate items for seamless looping */}
-        {MARQUEE_LIST.map(({ href, label }, index) => (
-          <MarqueeItemNoAnimation key={index * 4} href={href} label={label} />
+        {EVENT_LIST.map(({ href, eventName }, index) => (
+          <MarqueeItemNoAnimation
+            key={index * 4}
+            href={href}
+            label={eventName}
+          />
         ))}
-        {/* {MARQUEE_LIST.map(({ href, label }, index) => (
-          <MarqueeItem key={index * 30} href={href} label={label} />
-        ))} */}
       </motion.div>
     </div>
   );
