@@ -16,10 +16,11 @@ export default function MarqueeItem({
   label: string;
 }) {
   const router = useRouter();
-  const { hoveredItem, setHoveredItem } = useHover();
+  const { hoveredItem, setHoveredItem, setVisibleItem } = useHover();
   const [isDragging, setIsDragging] = useState(false);
   const startPosRef = useRef<{ x: number; y: number } | null>(null);
   const isMobile = useMobile();
+  const elementRef = useRef<HTMLDivElement>(null);
 
   // Double click handling
   const [clickCount, setClickCount] = useState(0);
@@ -27,6 +28,36 @@ export default function MarqueeItem({
 
   const isHovered = hoveredItem === label;
   const isAnyHovered = hoveredItem !== null;
+
+  // Set up Intersection Observer to detect when this item is visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          // Only set as visible if it's more than 50% visible
+          if (entry.intersectionRatio > 0.5) {
+            setVisibleItem(label);
+          }
+        }
+      },
+      {
+        root: null, // viewport
+        rootMargin: "0px",
+        threshold: [0.5, 0.75, 1], // Track different visibility thresholds
+      }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, [label, setVisibleItem]);
 
   // Clean up timer on unmount
   useEffect(() => {
@@ -95,6 +126,7 @@ export default function MarqueeItem({
 
   return (
     <div
+      ref={elementRef}
       onClick={handleClick}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -106,7 +138,7 @@ export default function MarqueeItem({
     >
       <LetterAnimation
         text={label}
-        className={`text-7xl sm:text-[120px] md:text-[250px] font-bold transition-all duration-300 ${
+        className={`text-7xl md:text-[120px] md:text-[250px] font-bold transition-all duration-300 ${
           isHovered ? "text-blue-500" : isAnyHovered ? "text-gray-500/30" : ""
         }`}
         isHovered={isHovered}

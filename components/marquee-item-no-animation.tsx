@@ -105,7 +105,7 @@ export default function MarqueeItemNoAnimation({
       onMouseLeave={() => setHoveredItem(null)}
     >
       <div
-        className={`text-7xl sm:text-[120px] md:text-[200px] font-bold transition-all duration-300 ${
+        className={`text-7xl md:text-[120px] md:text-[200px] font-bold transition-all duration-300 ${
           isHovered || active ? "text-blue-500" : ""
         }`}
       >

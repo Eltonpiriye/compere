@@ -3,18 +3,17 @@
 import { useHover } from "@/context/hover-context";
 import MarqueeGroup from "@/components/marquee-group";
 import BackgroundVideoPlayer from "@/components/background-video-player";
+import AnimatedButtons from "@/components/animated-buttons";
 
 export default function AboutPage() {
   const { hoveredItem } = useHover();
 
   return (
     <div
-      className={`flex flex-col items-start justify-between min-h-svh ${
-        hoveredItem ? "text-white" : ""
-      }`}
+      className={`flex flex-col items-start justify-between min-h-svh text-white bg-foreground/10`}
     >
       <BackgroundVideoPlayer />
-      <div className="px-4 md:px-12 pb-8 pt-24 text-[32px] font-bold w-full ">
+      <div className="grid gap-6 px-4 md:px-12 pb-8 pt-24 text-center md:text-left text-xl md:text-[32px] font-bold w-full">
         <p className="">
           I’M YOUR GO-TO COMPERE FOR TECH EVENTS AND CONFERENCES - ENERGIZING
           THE CROWD, CREATING A WELCOMING ATMOSPHERE AND TRANSFORMING ORDINARY
@@ -25,6 +24,7 @@ export default function AboutPage() {
           BRING PEOPLE TOGETHER AND THIS HOLDS TRUE WHETHER I COMMAND A MASSIVE
           STAGE OR LEAD A VIRTUAL EVENT.
         </p>
+        <AnimatedButtons />
       </div>
       <div className="marquee">
         <MarqueeGroup />

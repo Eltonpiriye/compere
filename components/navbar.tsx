@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import MaxWidthWrapper from "./max-width-wrapper";
@@ -25,7 +24,7 @@ export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
       } fixed z-10`}
     >
       <MaxWidthWrapper>
-        <div className="flex justify-between items-center px-4 sm:px-12 py-6 ">
+        <div className="flex justify-between items-center px-4 md:px-12 py-6 ">
           <Link href={"/"} className="font-bold">
             ELTON PIRIYE.
           </Link>
@@ -38,13 +37,12 @@ export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
               ))}
             </ul>
             {/* Mobile Menu Button */}
-            <Button
-              size={"icon"}
-              className="md:hidden bg-blue-500 text-white rounded-md"
+            <div
+              className="md:hidden cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
+              {isOpen ? <X size={30} /> : <Menu size={30} />}
+            </div>
           </nav>
         </div>
       </MaxWidthWrapper>
@@ -58,7 +56,7 @@ export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background"
           >
-            <ul className="flex flex-col space-y-4 min-h-[60svh] pb-5 px-4 pt-[15svh]">
+            <ul className="flex flex-col gap-6 min-h-svh pb-5 px-4 pt-[30px] bg-black">
               {links.map(({ href, label }, k) => (
                 <li key={k} onClick={() => setIsOpen(false)}>
                   <NavbarItem href={href}>{label}</NavbarItem>

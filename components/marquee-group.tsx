@@ -14,6 +14,7 @@ export default function MarqueeGroup() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
   const isMobile = useMobile();
+  const lastPositionRef = useRef(0);
 
   // Calculate the width of a single set of items
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function MarqueeGroup() {
   // Start or pause the animation based on hover state
   useEffect(() => {
     if (hoveredItem || isDragging) {
+      // Store the current position before stopping
       controls.stop();
     } else {
       startAnimation();
@@ -34,10 +36,11 @@ export default function MarqueeGroup() {
 
   // Function to start the animation
   const startAnimation = () => {
+    // Faster speed (reduced duration)
     controls.start({
-      x: "-50%",
+      x: isMobile ? "-370%" : "-270%",
       transition: {
-        duration: isMobile ? 5 : 20,
+        duration: isMobile ? 3 : 12, // Faster speed (was 5 and 20)
         ease: "linear",
         repeat: Number.POSITIVE_INFINITY,
         repeatType: "loop",
@@ -64,15 +67,18 @@ export default function MarqueeGroup() {
     if (containerRef.current) {
       const singleSetWidth = containerRef.current.scrollWidth / 2;
 
+      // Store the current position for direction tracking
+      lastPositionRef.current = latest.x;
+
       // If we've dragged past the first set, reset to create the illusion of infinity
-      if (latest.x < -singleSetWidth) {
-        controls.set({ x: 0 });
-      }
+      // if (latest.x < -singleSetWidth) {
+      //   controls.set({ x: 0 });
+      // }
 
       // If we've dragged too far right, reset to the left edge
-      if (latest.x > 0) {
-        controls.set({ x: -singleSetWidth });
-      }
+      // if (latest.x > 0) {
+      //   controls.set({ x: -singleSetWidth });
+      // }
     }
   };
 
@@ -93,11 +99,11 @@ export default function MarqueeGroup() {
         style={{ touchAction: "none" }}
       >
         {EVENT_LIST.map(({ href, eventName }, index) => (
-          <MarqueeItem key={index} href={href} label={eventName} />
+          <MarqueeItem key={`first-${index}`} href={href} label={eventName} />
         ))}
         {/* Duplicate items for seamless looping */}
         {EVENT_LIST.map(({ href, eventName }, index) => (
-          <MarqueeItem key={index * 4} href={href} label={eventName} />
+          <MarqueeItem key={`second-${index}`} href={href} label={eventName} />
         ))}
       </motion.div>
     </div>

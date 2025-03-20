@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ImageGallery from "@/components/image-gallery";
@@ -32,6 +32,13 @@ export default function SingleEventPageFromCms({
   const galleryRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [textWidth, setTextWidth] = useState(0);
+
+  useEffect(() => {
+    if (textRef && textRef.current && textRef.current?.scrollWidth > 0) {
+      setTextWidth(textRef.current.scrollWidth);
+    }
+  }, [textRef]);
 
   // Specific scroll progress for the oversized text
   const { scrollYProgress: textScrollProgress } = useScroll({
@@ -46,7 +53,7 @@ export default function SingleEventPageFromCms({
   });
 
   // Transform scroll progress into animation values
-  const textX = useTransform(galleryScrollProgress, [0, 1], [0, -3000]);
+  const textX = useTransform(galleryScrollProgress, [0, 1], [0, -textWidth]);
   const textOpacity = useTransform(
     textScrollProgress,
     [0, 0.2, 0.8, 1],
@@ -104,9 +111,9 @@ export default function SingleEventPageFromCms({
           </div>
         )}
       </section>
-      <div className="marquee">
+      {/* <div className="marquee">
         <MarqueeGroupNoAnimation />
-      </div>
+      </div> */}
 
       {/* Main content container */}
       <MaxWidthWrapper>
@@ -131,7 +138,7 @@ export default function SingleEventPageFromCms({
                 {eventName ?? "ARM LABS - TECHSTARS"}
               </h1>
             </motion.div>
-            <p className="mt-5 md:mt-10 px-4 md:px-12 pb-8 text-2xl md:text-[32px] font-bold">
+            <p className="mt-5 md:mt-10 px-4 md:px-12 pb-8 text-xl md:text-[32px] font-bold">
               {eventDescription ??
                 "I WAS THE COMPERE FOR AN EXCLUSIVE GATHERING OF OVER 100 TOP INVESTORS AND MENTORS, AND 150+ AMBITIOUS FOUNDERS FROM ACROSS AFRICA. THE DEMO DAY HIGHLIGHTED 12 STARTUPS WITH EMERGING SOLUTIONS IN FINTECH, HEALTH-TECH, B2B SaaS AND MORE - CAPPING OFF A 13-WEEK ACCELERATOR GEARED TOWARS FUELING THE CONTINENTS NEXT WAVE OF INNOVATION."}
             </p>

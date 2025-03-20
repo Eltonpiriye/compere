@@ -17,7 +17,8 @@ export default function WithNavLayout({
   return (
     <div className="font-[family-name:var(--font-product-sans)] relative transition-colors duration-300 min-h-svh">
       <Navbar
-        isWhite={!!hoveredItem && shouldHaveWhiteNavbar.includes(pathname)}
+        // isWhite={!!hoveredItem && shouldHaveWhiteNavbar.includes(pathname)}
+        isWhite={shouldHaveWhiteNavbar.includes(pathname)}
       />
       {children}
     </div>
