@@ -138,9 +138,8 @@ export default function SingleEventPageFromCms({
                 {eventName ?? "ARM LABS - TECHSTARS"}
               </h1>
             </motion.div>
-            <p className="mt-5 md:mt-10 px-4 md:px-12 pb-8 text-xl md:text-[32px] font-bold">
-              {eventDescription ??
-                "I WAS THE COMPERE FOR AN EXCLUSIVE GATHERING OF OVER 100 TOP INVESTORS AND MENTORS, AND 150+ AMBITIOUS FOUNDERS FROM ACROSS AFRICA. THE DEMO DAY HIGHLIGHTED 12 STARTUPS WITH EMERGING SOLUTIONS IN FINTECH, HEALTH-TECH, B2B SaaS AND MORE - CAPPING OFF A 13-WEEK ACCELERATOR GEARED TOWARS FUELING THE CONTINENTS NEXT WAVE OF INNOVATION."}
+            <p className="mt-5 md:mt-10 px-4 md:px-12 pb-8 text-xl md:text-[32px] font-bold ">
+              {eventDescription}
             </p>
           </div>
 

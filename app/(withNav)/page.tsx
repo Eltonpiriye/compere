@@ -11,7 +11,11 @@ export default function Home() {
       <BackgroundVideoPlayer />
       <MaxWidthWrapper>
         <div className="grid gap-6 px-4 md:px-12 pb-8 pt-24 text-2xl md:text-[32px] font-bold w-full md:max-w-[500px] text-center md:text-left">
-          HI! MY NAME IS ELTONPIRIYE, POPULARLY KNOWN AS THE HOST WITH THE MOST.
+          <div className="text-left">
+            Hi! My name is <span className="font-bold">ELTONPIRIYE</span>,
+            popularly known as <br />
+            &ldquo;HOST WITH THE MOST&rdquo; 😁.
+          </div>
           <AnimatedButtons />
         </div>
       </MaxWidthWrapper>

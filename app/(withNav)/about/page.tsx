@@ -4,6 +4,7 @@ import { useHover } from "@/context/hover-context";
 import MarqueeGroup from "@/components/marquee-group";
 import BackgroundVideoPlayer from "@/components/background-video-player";
 import AnimatedButtons from "@/components/animated-buttons";
+import MaxWidthWrapper from "@/components/max-width-wrapper";
 
 export default function AboutPage() {
   const { hoveredItem } = useHover();
@@ -13,19 +14,23 @@ export default function AboutPage() {
       className={`flex flex-col items-start justify-between min-h-svh text-white bg-foreground/10`}
     >
       <BackgroundVideoPlayer />
-      <div className="grid gap-6 px-4 md:px-12 pb-8 pt-24 text-center md:text-left text-xl md:text-[32px] font-bold w-full">
-        <p className="">
-          I’M YOUR GO-TO COMPERE FOR TECH EVENTS AND CONFERENCES - ENERGIZING
-          THE CROWD, CREATING A WELCOMING ATMOSPHERE AND TRANSFORMING ORDINARY
-          GATHERINGS INTO UNFORGETTABLE EXPERIENCES.
-        </p>
-        <p>
-          MY DEEP PASSION IS CREATING DEEPLY MEMORABLE MOMENTS THAT MEANINGFULLY
-          BRING PEOPLE TOGETHER AND THIS HOLDS TRUE WHETHER I COMMAND A MASSIVE
-          STAGE OR LEAD A VIRTUAL EVENT.
-        </p>
-        <AnimatedButtons />
-      </div>
+      <MaxWidthWrapper>
+        <div className="grid gap-6 px-4 md:px-12 pb-8 pt-24 text-center md:text-left text-xl md:text-[32px] font-bold w-full">
+          <p className="">
+            I’m your go-to compere for tech events and conferences – energizing
+            the crowd, creating a welcoming atmosphere, and transforming
+            ordinary gatherings into unforgettable experiences.
+          </p>
+          <p>
+            My deep passion is creating deeply memorable moments that
+            meaningfully bring people together, and this holds true whether I
+            command a massive stage or lead a virtual event.
+          </p>
+          <div className="max-w-[400px]">
+            <AnimatedButtons />
+          </div>
+        </div>
+      </MaxWidthWrapper>
       <div className="marquee">
         <MarqueeGroup />
       </div>

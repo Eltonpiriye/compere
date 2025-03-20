@@ -35,7 +35,6 @@ export default function ImageGallery({
     [0, 0.5, 0.7, 0.8]
   );
 
-  console.log({ blurAmount, bgOpacity });
   return (
     <div className="relative">
       <motion.div

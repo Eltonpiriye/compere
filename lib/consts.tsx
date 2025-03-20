@@ -3,7 +3,7 @@ import { SingleEventPageFromCmsProps } from "@/components/single-event";
 export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
   {
     eventDescription:
-      "I WAS THE COMPERE FOR AN EXCLUSIVE GATHERING OF OVER 100 TOP INVESTORS AND MENTORS, AND 150+ AMBITIOUS FOUNDERS FROM ACROSS AFRICA. THE DEMO DAY HIGHLIGHTED 12 STARTUPS WITH EMERGING SOLUTIONS IN FINTECH, HEALTH-TECH, B2B SaaS AND MORE - CAPPING OFF A 13-WEEK ACCELERATOR GEARED TOWARS FUELING THE CONTINENTS NEXT WAVE OF INNOVATION.",
+      "I was the compere for an exclusive gathering of over 100 top investors and mentors, and 150+ ambitious founders from across Africa. The demo day highlighted 12 startups with emerging solutions in fintech, health-tech, B2B SaaS and more – capping off a 13-week accelerator geared towards fueling the continent's next wave of innovation.",
     slug: "arm-labs-techstars",
     mainImage: "/images/sample-1.jpg",
     mainVideo: "/videos/sample-1.webm",
