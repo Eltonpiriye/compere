@@ -5,5 +5,7 @@ export default function MaxWidthWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="container mx-auto overflow-x-clip">{children}</div>;
+  return (
+    <div className="container mx-auto px-4 overflow-x-clip">{children}</div>
+  );
 }

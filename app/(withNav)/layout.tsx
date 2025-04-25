@@ -13,9 +13,9 @@ export default function WithNavLayout({
   const { hoveredItem } = useHover();
   const pathname = usePathname();
 
-  const shouldHaveWhiteNavbar = ["/", "/about"];
+  const shouldHaveWhiteNavbar = ["/", "/about", "/services"];
   return (
-    <div className="font-[family-name:var(--font-product-sans)] relative transition-colors duration-300 min-h-svh">
+    <div className="relative font-product-sans transition-colors duration-300 min-h-svh">
       <Navbar
         // isWhite={!!hoveredItem && shouldHaveWhiteNavbar.includes(pathname)}
         isWhite={shouldHaveWhiteNavbar.includes(pathname)}

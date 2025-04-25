@@ -11,6 +11,11 @@ const productSans = localFont({
   variable: "--font-product-sans",
 });
 
+const productSansBold = localFont({
+  src: "../public/fonts/product-sans-full/ProductSans-Light.ttf",
+  variable: "--font-product-sans",
+});
+
 const tuskerGrotesk = localFont({
   src: "../public/fonts/tusker-grotesk/TuskerGrotesk-3500Medium.woff",
   variable: "--font-tusker-grotesk",
@@ -34,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${tuskerGrotesk.variable} ${tuskerGroteskBold.variable} ${productSans.variable} antialiased min-h-svh`}
+        className={`${tuskerGrotesk.variable} ${tuskerGroteskBold.variable} ${productSans.className} antialiased min-h-svh`}
       >
         <Transition>
           <TransitionProvider>

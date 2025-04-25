@@ -8,9 +8,9 @@ import { usePathname } from "next/navigation";
 import MaxWidthWrapper from "./max-width-wrapper";
 
 const links = [
-  { href: "/introduction", label: "Introduction" },
-  { href: "/testimonials", label: "Testimonials" },
   { href: "/about", label: "About Me" },
+  { href: "/events", label: "Events Hosted" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -24,7 +24,7 @@ export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
       } fixed z-10`}
     >
       <MaxWidthWrapper>
-        <div className="flex justify-between items-center px-4 md:px-12 py-6 ">
+        <div className="flex justify-between items-center py-6 ">
           <Link href={"/"} className="font-bold">
             ELTON PIRIYE.
           </Link>

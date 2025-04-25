@@ -6,8 +6,9 @@
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-product-sans: var(--font-product-sans);
+  --font-product-sans-bold: var(--font-product-sans-bold);
+  --color-foreground: var(--foreground);
   --font-tusker-grotesk: var(--font-tusker-grotesk);
   --font-tusker-grotesk-bold: var(--font-tusker-grotesk-bold);
   --color-sidebar-ring: var(--sidebar-ring);
