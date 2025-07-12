@@ -50,7 +50,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
       "I MANNED THE TWO-DAY EVENT HOSTING 4,000+ ATTENDEES (INCLUDING 20% INNOVATORS, 50% SENIOR LEADERS) AND 50+ EXHIBITORS. DAY ONE FEATURED AN INTIMATE DEVELOPER SESSION, WHILE DAY TWO EXPANDED TO BROADER INNOVATION IN TECH ECOSYSTEM, CAPPED OFF BY A HIGH-ENERGY PITCH BATTLEGROUND. ACROSS BOTH DAYS, I KEPT SESSIONS ENGAGING, ENSURED SMOOTH TRANSITIONS AND SPOTLIGHTED THE IDEAS DRIVING AFRICA’S TECH FUTURE.",
     slug: "africa-technology-expo",
     mainImage: "/images/sample-2.jpg",
-    mainVideo: "/videos/sample-3.webm",
+    mainVideo: "/drive/ATE/videos/1.MOV",
     eventLogo: "/images/ate/ate-logo.png",
     eventName: "AFRICA TECHNOLOGY EXPO",
     href: "/events/africa-technology-expo",
@@ -137,43 +137,43 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
     eventDescription:
       "I had the privilege of hosting an exclusive, invite-only premiere of “Discovering New Tech Destinations Across Africa: Tunisia Tech Destination” at the American Corner, an extension of the American Consulate. The event brought together founders and key players from Lagos’s tech ecosystem who were eager to explore the opportunities presented by Tunisia’s emerging tech landscape.",
     slug: "xconnect-africa",
-    mainImage: "/images/sample-3.jpg",
-    mainVideo: "/videos/sample-3.webm",
+    mainImage: "/drive/X-Africa/12.jpg",
+    mainVideo: "/drive/X-Africa/videos/1.mp4",
     eventLogo: "/images/xca/xca-logo-side.png",
     eventName: "XCONNECT AFRICA",
     href: "/events/xconnect-africa",
     eventImages: [
       {
-        src: "/images/arm/1.jpg",
-        alt: "Speaker at ARM LABS event",
+        src: "/drive/X-Africa/1.jpg",
+        alt: "XConnect Africa Image",
       },
       {
-        src: "/images/arm/2.jpg",
-        alt: "Group celebration at Demo Day",
+        src: "/drive/X-Africa/2.jpg",
+        alt: "XConnect Africa Image",
       },
       {
-        src: "/images/arm/3.jpg",
-        alt: "Team members at ARM LABS",
+        src: "/drive/X-Africa/3.jpg",
+        alt: "XConnect Africa Image",
       },
       {
-        src: "/images/arm/4.jpg",
-        alt: "Audience at Demo Day",
+        src: "/drive/X-Africa/4.jpg",
+        alt: "XConnect Africa Image",
       },
       {
-        src: "/images/arm/main.jpg",
-        alt: "Audience at Demo Day",
+        src: "/drive/X-Africa/8.jpg",
+        alt: "XConnect Africa Image",
       },
       {
-        src: "/images/arm/5.jpg",
-        alt: "Audience at Demo Day",
+        src: "/drive/X-Africa/5.jpg",
+        alt: "XConnect Africa Image",
       },
       {
-        src: "/images/arm/6.jpg",
-        alt: "Audience at Demo Day",
+        src: "/drive/X-Africa/6.jpg",
+        alt: "XConnect Africa Image",
       },
       {
-        src: "/images/arm/7.jpg",
-        alt: "Audience at Demo Day",
+        src: "/drive/X-Africa/7.jpg",
+        alt: "XConnect Africa Image",
       },
     ],
   },
@@ -196,3 +196,48 @@ export const SERVICES = [
       " An online format doesn’t have to be impersonal. I  specialize in creating a dynamic atmosphere that brings  remote attendees into the action, no matter where  they’re tuning in from.",
   },
 ];
+
+export const TESTIMONIALS_DATA = [
+  {
+    avatarSrc: "/placeholder.svg?height=48&width=48", // Placeholder for avatar
+    name: "Eric L. Barnes",
+    title: "Owner of Laravel News",
+    quote:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. ",
+  },
+  {
+    avatarSrc: "/placeholder.svg?height=48&width=48",
+    name: "János Horváth",
+    title: "CTO of BrokerChooser",
+    quote:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet.",
+  },
+  {
+    avatarSrc: "/placeholder.svg?height=48&width=48",
+    name: "Gilbert Pellegrom",
+    title: "CTO of Lemon Squeezy",
+    quote:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+  },
+  {
+    avatarSrc: "/placeholder.svg?height=48&width=48",
+    name: "János Horváth",
+    title: "CTO of BrokerChooser",
+    quote:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet.",
+  },
+  {
+    avatarSrc: "/placeholder.svg?height=48&width=48",
+    name: "Gilbert Pellegrom",
+    title: "CTO of Lemon Squeezy",
+    quote:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+  },
+  {
+    avatarSrc: "/placeholder.svg?height=48&width=48",
+    name: "Eric L. Barnes",
+    title: "Owner of Laravel News",
+    quote:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+  },
+]
