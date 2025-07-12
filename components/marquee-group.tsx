@@ -7,7 +7,7 @@ import { useHover } from "@/context/hover-context";
 import { useEffect, useRef, useState } from "react";
 import { useMobile } from "@/hooks/use-mobile";
 
-export default function MarqueeGroup() {
+export default function MarqueeGroup({isBlack = false}:{isBlack?: boolean}) {
   const { hoveredItem } = useHover();
   const controls = useAnimationControls();
   const [isDragging, setIsDragging] = useState(false);
@@ -99,11 +99,11 @@ export default function MarqueeGroup() {
         style={{ touchAction: "none" }}
       >
         {EVENT_LIST.map(({ href, eventName }, index) => (
-          <MarqueeItem key={`first-${index}`} href={href} label={eventName} />
+          <MarqueeItem isBlack={isBlack} key={`first-${index}`} href={href} label={eventName} />
         ))}
         {/* Duplicate items for seamless looping */}
         {EVENT_LIST.map(({ href, eventName }, index) => (
-          <MarqueeItem key={`second-${index}`} href={href} label={eventName} />
+          <MarqueeItem isBlack={isBlack} key={`second-${index}`} href={href} label={eventName} />
         ))}
       </motion.div>
     </div>

@@ -11,9 +11,11 @@ import { useMobile } from "@/hooks/use-mobile";
 export default function MarqueeItem({
   href,
   label,
+  isBlack = false
 }: {
   href: string;
   label: string;
+isBlack?: boolean
 }) {
   const router = useRouter();
   const { hoveredItem, setHoveredItem, setVisibleItem } = useHover();
@@ -138,8 +140,8 @@ export default function MarqueeItem({
     >
       <LetterAnimation
         text={label}
-        className={`text-7xl md:text-[120px] md:text-[250px] font-bold transition-all duration-300 ${
-          isHovered ? "text-blue-500" : isAnyHovered ? "text-gray-500/30" : ""
+        className={`text-7xl md:text-[120px] font-bold transition-all duration-300 ${
+          isBlack? "text-black" : isHovered ? "text-blue-500" : isAnyHovered ? "text-gray-500/30" : ""
         }`}
         isHovered={isHovered}
       />
