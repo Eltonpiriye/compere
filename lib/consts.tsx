@@ -5,7 +5,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
     eventDescription:
       "I was the compere for an exclusive gathering of over 100 top investors and mentors, and 150+ ambitious founders from across Africa. The demo day highlighted 12 startups with emerging solutions in fintech, health-tech, B2B SaaS and more – capping off a 13-week accelerator geared towards fueling the continent's next wave of innovation.",
     slug: "arm-labs-techstars",
-    mainImage: "/images/sample-1.jpg",
+    mainImage: "/drive/Techstars/2.jpg",
     mainVideo: "/videos/sample-1.webm",
     eventLogo: "/images/arm/techstars-logo.png",
     eventName: "ARM LABS - TECHSTARS",
@@ -49,8 +49,8 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
     eventDescription:
       "I MANNED THE TWO-DAY EVENT HOSTING 4,000+ ATTENDEES (INCLUDING 20% INNOVATORS, 50% SENIOR LEADERS) AND 50+ EXHIBITORS. DAY ONE FEATURED AN INTIMATE DEVELOPER SESSION, WHILE DAY TWO EXPANDED TO BROADER INNOVATION IN TECH ECOSYSTEM, CAPPED OFF BY A HIGH-ENERGY PITCH BATTLEGROUND. ACROSS BOTH DAYS, I KEPT SESSIONS ENGAGING, ENSURED SMOOTH TRANSITIONS AND SPOTLIGHTED THE IDEAS DRIVING AFRICA’S TECH FUTURE.",
     slug: "africa-technology-expo",
-    mainImage: "/images/sample-2.jpg",
-    mainVideo: "/drive/ATE/videos/1.MOV",
+    mainImage: "/drive/ATE/2.jpg",
+    mainVideo: "/drive/ATE/videos/1.mp4",
     eventLogo: "/images/ate/ate-logo.png",
     eventName: "AFRICA TECHNOLOGY EXPO",
     href: "/events/africa-technology-expo",
@@ -93,8 +93,8 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
     eventDescription:
       "I FACILITATED AS THE OFFICIAL COMPERE AND MAIN STAGE FOR THE AFRICA STARTUP FESTIVAL LAGOS, WHICH WELCOMED 3000+ ATTENDEES FROM 15 COUNTRIES, INCLUDING 50+ MEDIA AND VENTURE ANALYSTS AND 30+ INDUSTRY SPEAKING LEADERS. THE CONFERENCE FEATURES A DYNAMIC LINEUP OF SESSIONS, PANEL DISCUSSIONS, AND NETWORKING OPPOURTUNITIES —  THROUGHOUT THE CONFERENCE I MAINTAINED AN ENGAGING ATMOSPHERE AND FACILITATED KEY SEGMENTS ON THE MAIN STAGE, ENSURING A MEMORABLE EXPERIENCE FOR EVERYONE INVOLVED.",
     slug: "africa-srartup-festival",
-    mainImage: "/images/sample-3.jpg",
-    mainVideo: "/videos/sample-3.webm",
+    mainImage: "/drive/ASF/2.jpg",
+    mainVideo: "/drive/ASF/videos/1.mp4",
     eventLogo: "/images/asf/asf-logo.png",
     eventName: "AFRICA STARTUP FESTIVAL",
     href: "/events/africa-srartup-festival",
