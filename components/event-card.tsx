@@ -2,11 +2,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
-import type { SingleEventPageFromCmsProps } from "@/lib/consts"
 
-interface EventCardProps extends SingleEventPageFromCmsProps {}
-
-export default function EventCard({ eventName, eventLogo, href }: EventCardProps) {
+export default function EventCard({ eventName, eventLogo, href }: { eventName: string; eventLogo: string; href: string; }) {
   return (
     <Link href={href} className="block group">
       <Card className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
