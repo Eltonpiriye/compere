@@ -6,21 +6,23 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import MaxWidthWrapper from "./max-width-wrapper";
+import { useMobile } from "@/hooks/use-mobile";
 
 const links = [
   { href: "/about", label: "About Me" },
   { href: "/events", label: "Events Hosted" },
-  { href: "/testimonials", label: "Testimonials" },
+  { href: "/recommendations", label: "Recommendations" },
   { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/contact", label: "Contact My Team" },
 ];
 
 export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useMobile()
   return (
     <header
-      className={`w-svw grid font-tusker-grotesk text-3xl tracking-wider bg-background ${
-        isWhite ? "text-[#EDECE8] bg-transparent" : "text-foreground"
+      className={`w-svw grid font-tusker-grotesk text-3xl tracking-wider ${isOpen?"bg-black text-white":'bg-background'} ${
+        isWhite ? `text-[#EDECE8] bg-transparent` : "text-foreground"
       } fixed z-10`}
     >
       <MaxWidthWrapper>
@@ -56,7 +58,7 @@ export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background"
           >
-            <ul className="flex flex-col gap-6 min-h-svh pb-5 px-4 pt-[30px] bg-black">
+            <ul className="flex flex-col gap-6 min-h-svh pb-5 px-4 pt-[30px] bg-black text-white">
               {links.map(({ href, label }, k) => (
                 <li key={k} onClick={() => setIsOpen(false)}>
                   <NavbarItem href={href}>{label}</NavbarItem>

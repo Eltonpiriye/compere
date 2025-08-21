@@ -1,4 +1,3 @@
-import BackgroundVideoPlayer from "@/components/background-video-player";
 import MarqueeGroup from "@/components/marquee-group";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { Linkedin, Mail, Phone } from "lucide-react";
@@ -72,7 +71,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="relative h-[400px] lg:h-[600px] w-full rounded-lg overflow-hidden">
+          <div className="relative h-[350px] lg:h-[500px] w-full rounded-lg overflow-hidden">
             <Image
               src="/images/elton.png"
               alt="Elton Piriye"

@@ -4,104 +4,86 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useHover } from "@/context/hover-context";
 import { EVENT_LIST } from "@/lib/consts";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function BackgroundVideoPlayer() {
-  const { hoveredItem, visibleItem } = useHover()
-  const [videoSrc, setVideoSrc] = useState<string | null>(null)
-  const [currentImageSrc, setCurrentImageSrc] = useState<string | null>(null)
-  const [nextImageSrc, setNextImageSrc] = useState<string | null>(null)
-  const [isTransitioning, setIsTransitioning] = useState(false)
+  const { hoveredItem, visibleItem } = useHover();
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const [currentImageSrc, setCurrentImageSrc] = useState<string | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const videoRef = useRef<HTMLVideoElement>(null) // Ref for the main video
-  const backgroundVideoRef = useRef<HTMLVideoElement>(null) // Ref for the blurred background video
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const backgroundVideoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-  const activeItem = hoveredItem || visibleItem
+  const activeItem = hoveredItem || visibleItem;
 
   // Handle image/video source changes based on active item
   useEffect(() => {
     if (!activeItem) {
-      // If no active item, clear all media
-      setVideoSrc(null)
-      setCurrentImageSrc(null)
-      setNextImageSrc(null)
-      setIsTransitioning(false)
-      return
+      setVideoSrc(null);
+      setCurrentImageSrc(null);
+      setIsTransitioning(false);
+      return;
     }
 
-    const item = EVENT_LIST.find((item) => item.eventName === activeItem)
+    const item = EVENT_LIST.find((item) => item.eventName === activeItem);
 
     if (item) {
-      // Prioritize video if hovered, otherwise use image
       if (hoveredItem && item.mainVideo) {
-        setVideoSrc(item.mainVideo)
-        // When video is active, ensure images are cleared
-        setCurrentImageSrc(null)
-        setNextImageSrc(null)
-        setIsTransitioning(false)
+        setVideoSrc(item.mainVideo);
+        setCurrentImageSrc(null);
+        setIsTransitioning(false);
       } else {
-        setVideoSrc(null) // Stop video if not hovered or no video available
-        // Handle image transitions
+        setVideoSrc(null);
         if (currentImageSrc !== item.mainImage) {
-          setIsTransitioning(true)
-          setNextImageSrc(item.mainImage)
-          // After a short delay, complete the transition
-          const timer = setTimeout(() => {
-            setCurrentImageSrc(item.mainImage)
-            setNextImageSrc(null)
-            setIsTransitioning(false)
-          }, 500) // 500ms transition time
-          return () => clearTimeout(timer)
+          setIsTransitioning(true);
+          setCurrentImageSrc(item.mainImage);
+          setTimeout(() => setIsTransitioning(false), 600); // smooth fade timing
         }
       }
     }
-  }, [activeItem, hoveredItem, currentImageSrc])
+  }, [activeItem, hoveredItem]);
 
-  // Handle video loading and playing for both main and background videos
+  // Handle video loading
   useEffect(() => {
-    const mainVideoElement = videoRef.current
-    const bgVideoElement = backgroundVideoRef.current
+    const mainVideoElement = videoRef.current;
+    const bgVideoElement = backgroundVideoRef.current;
 
     if (mainVideoElement && bgVideoElement) {
       if (videoSrc) {
-        // Set sources for both videos
-        mainVideoElement.src = videoSrc
-        bgVideoElement.src = videoSrc
+        mainVideoElement.src = videoSrc;
+        bgVideoElement.src = videoSrc;
 
-        // Load and play both videos
-        mainVideoElement.load()
-        bgVideoElement.load()
+        mainVideoElement.load();
+        bgVideoElement.load();
 
-        mainVideoElement.play().catch((e) => {
-          console.error("Main video play failed:", e)
-          setIsVideoLoaded(false)
-        })
+        mainVideoElement
+          .play()
+          .then(() => setIsVideoLoaded(true))
+          .catch((e) => {
+            console.error("Main video play failed:", e);
+            setIsVideoLoaded(false);
+          });
+
         bgVideoElement.play().catch((e) => {
-          console.error("Background video play failed:", e)
-        })
-
-        // Set loaded state for main video
-        mainVideoElement.onloadeddata = () => {
-          setIsVideoLoaded(true)
-        }
+          console.error("Background video play failed:", e);
+        });
       } else {
-        // Pause and clear sources if no videoSrc
-        mainVideoElement.pause()
-        bgVideoElement.pause()
-        mainVideoElement.src = ""
-        bgVideoElement.src = ""
-        setIsVideoLoaded(false)
+        mainVideoElement.pause();
+        bgVideoElement.pause();
+        mainVideoElement.src = "";
+        bgVideoElement.src = "";
+        setIsVideoLoaded(false);
       }
     }
-  }, [videoSrc])
+  }, [videoSrc]);
 
-  // If no content to display, return null
-  if (!videoSrc && !currentImageSrc && !nextImageSrc) return null
+  if (!videoSrc && !currentImageSrc) return null;
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden z-[-1] bg-black">
-      {/* Blurred background video (only renders if videoSrc is available) */}
+      {/* Blurred background video */}
       {videoSrc && (
         <video
           ref={backgroundVideoRef}
@@ -114,11 +96,11 @@ export default function BackgroundVideoPlayer() {
         />
       )}
 
-      {/* Main video (only renders if videoSrc is available) */}
+      {/* Main video */}
       {videoSrc && (
         <video
           ref={videoRef}
-          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
+          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
             isVideoLoaded ? "opacity-100" : "opacity-0"
           }`}
           autoPlay
@@ -129,36 +111,30 @@ export default function BackgroundVideoPlayer() {
         />
       )}
 
-      {/* Current Image (renders if no videoSrc and currentImageSrc is available) */}
+      {/* Image with smooth fade */}
       {!videoSrc && currentImageSrc && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{
-            opacity: isTransitioning ? 0 : 1,
-            transition: { duration: 0.3 },
-          }}
-          className="absolute inset-0"
-        >
-          <Image src={currentImageSrc || "/placeholder.svg"} alt="Background" fill className="object-cover" priority />
-        </motion.div>
-      )}
-
-      {/* Next Image (for transition, renders if no videoSrc and nextImageSrc is available) */}
-      {!videoSrc && nextImageSrc && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: isTransitioning ? 1 : 0,
-            transition: { duration: 0.3 },
-          }}
-          className="absolute inset-0"
-        >
-          <Image src={nextImageSrc || "/placeholder.svg"} alt="Background" fill className="object-cover" priority />
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageSrc}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={currentImageSrc || "/placeholder.svg"}
+              alt="Background"
+              fill
+              className="object-cover grayscale"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
       )}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
     </div>
-  )
+  );
 }

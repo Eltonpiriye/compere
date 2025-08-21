@@ -1,21 +1,34 @@
 "use client";
 
 import type React from "react";
-
 import { useHover } from "@/context/hover-context";
 import LetterAnimation from "./letter-animation";
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { useMobile } from "@/hooks/use-mobile";
 
+function getScrollParent(el: Element | null): Element | Window {
+  let node = el?.parentElement || null;
+  while (node) {
+    const style = window.getComputedStyle(node);
+    const overflowX = style.overflowX;
+    const scrollable =
+      (overflowX === "auto" || overflowX === "scroll" || overflowX === "overlay") &&
+      node.scrollWidth > node.clientWidth;
+    if (scrollable) return node;
+    node = node.parentElement;
+  }
+  return window; // fallback
+}
+
 export default function MarqueeItem({
   href,
   label,
-  isBlack = false
+  isBlack = false,
 }: {
   href: string;
   label: string;
-isBlack?: boolean
+  isBlack?: boolean;
 }) {
   const router = useRouter();
   const { hoveredItem, setHoveredItem, setVisibleItem } = useHover();
@@ -24,72 +37,80 @@ isBlack?: boolean
   const isMobile = useMobile();
   const elementRef = useRef<HTMLDivElement>(null);
 
-  // Double click handling
-  const [clickCount, setClickCount] = useState(0);
-  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+  // Mobile double-tap with timestamp to avoid stale state
+  const lastTapRef = useRef<number>(0);
 
   const isHovered = hoveredItem === label;
   const isAnyHovered = hoveredItem !== null;
 
-  // Set up Intersection Observer to detect when this item is visible
+  // Detect when this item’s left edge touches the start of the scroll root
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          // Only set as visible if it's more than 50% visible
-          if (entry.intersectionRatio > 0.5) {
-            setVisibleItem(label);
-          }
-        }
-      },
-      {
-        root: null, // viewport
-        rootMargin: "0px",
-        threshold: [0.5, 0.75, 1], // Track different visibility thresholds
-      }
-    );
+    const el = elementRef.current;
+    if (!el) return;
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
+    const root = getScrollParent(el);
+    const scrollTarget: Element | Window = root === window ? window : (root as Element);
+
+    // Tolerance (px) around the left edge — accounts for margins like mx-10 (~40px)
+    const TOL = 48;
+
+    let rafId: number | null = null;
+    let loopId: number | null = null;
+
+    const check = () => {
+      const rect = el.getBoundingClientRect();
+      const rootRect =
+        root === window
+          ? { left: 0, right: window.innerWidth }
+          : (root as Element).getBoundingClientRect();
+
+      // Distance of the item’s left edge from the root’s left edge
+      const leftDist = rect.left - rootRect.left;
+
+      // Consider "visible" if the item’s left edge is within [0, TOL] of the root’s left
+      if (leftDist >= 0 && leftDist <= TOL && rect.right > rootRect.left) {
+        setVisibleItem(label);
+      }
+    };
+
+    const onScrollOrResize = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(check);
+    };
+
+    // Initial check + listeners
+    check();
+    scrollTarget.addEventListener("scroll", onScrollOrResize as any, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+
+    // Fallback loop for CSS transform-based marquee animations (no scroll events)
+    const loop = () => {
+      check();
+      loopId = requestAnimationFrame(loop);
+    };
+    loopId = requestAnimationFrame(loop);
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
-      }
+      if (rafId) cancelAnimationFrame(rafId);
+      if (loopId) cancelAnimationFrame(loopId);
+      scrollTarget.removeEventListener("scroll", onScrollOrResize as any);
+      window.removeEventListener("resize", onScrollOrResize);
     };
   }, [label, setVisibleItem]);
 
-  // Clean up timer on unmount
-  useEffect(() => {
-    return () => {
-      if (clickTimerRef.current) {
-        clearTimeout(clickTimerRef.current);
-      }
-    };
-  }, []);
-
-  // Track mouse/touch down position
+  // Track pointer for drag detection
   const handlePointerDown = (e: React.PointerEvent) => {
     startPosRef.current = { x: e.clientX, y: e.clientY };
     setIsDragging(false);
   };
 
-  // Track mouse/touch move to detect dragging
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!startPosRef.current) return;
-
     const deltaX = Math.abs(e.clientX - startPosRef.current.x);
     const deltaY = Math.abs(e.clientY - startPosRef.current.y);
-
-    // If moved more than 5px in any direction, consider it a drag
-    if (deltaX > 5 || deltaY > 5) {
-      setIsDragging(true);
-    }
+    if (deltaX > 5 || deltaY > 5) setIsDragging(true);
   };
 
-  // Handle click/navigation with double-click support for mobile
   const handleClick = (e: React.MouseEvent) => {
     if (isDragging) {
       e.preventDefault();
@@ -97,31 +118,19 @@ isBlack?: boolean
     }
 
     if (isMobile) {
-      // Implement double-click for mobile
-      setClickCount((prev) => prev + 1);
-
-      if (clickCount === 0) {
-        // First click - set timer
-        if (clickTimerRef.current) {
-          clearTimeout(clickTimerRef.current);
-        }
-
-        clickTimerRef.current = setTimeout(() => {
-          setClickCount(0);
-        }, 300); // 300ms double-click threshold
-      } else {
-        // Second click - navigate
-        clearTimeout(clickTimerRef.current as NodeJS.Timeout);
-        setClickCount(0);
+      const now = Date.now();
+      if (now - lastTapRef.current < 300) {
+        // second tap within threshold
+        lastTapRef.current = 0;
         router.push(href);
+      } else {
+        lastTapRef.current = now;
       }
     } else {
-      // Desktop behavior - single click
       router.push(href);
     }
   };
 
-  // Reset on pointer up
   const handlePointerUp = () => {
     startPosRef.current = null;
   };
@@ -135,13 +144,19 @@ isBlack?: boolean
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
       className="flex items-center mx-10 cursor-pointer"
-      onMouseEnter={() => setHoveredItem(label)}
+      onMouseEnter={() => setHoveredItem(label)} // hover state (independent)
       onMouseLeave={() => setHoveredItem(null)}
     >
       <LetterAnimation
         text={label}
         className={`text-7xl md:text-[120px] font-bold transition-all duration-300 ${
-          isBlack? "text-black" : isHovered ? "text-blue-500" : isAnyHovered ? "text-gray-500/30" : ""
+          isBlack
+            ? "text-black"
+            : isHovered
+            ? "text-blue-500"
+            : isAnyHovered
+            ? "text-gray-500/30"
+            : ""
         }`}
         isHovered={isHovered}
       />

@@ -50,7 +50,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
       "I MANNED THE TWO-DAY EVENT HOSTING 4,000+ ATTENDEES (INCLUDING 20% INNOVATORS, 50% SENIOR LEADERS) AND 50+ EXHIBITORS. DAY ONE FEATURED AN INTIMATE DEVELOPER SESSION, WHILE DAY TWO EXPANDED TO BROADER INNOVATION IN TECH ECOSYSTEM, CAPPED OFF BY A HIGH-ENERGY PITCH BATTLEGROUND. ACROSS BOTH DAYS, I KEPT SESSIONS ENGAGING, ENSURED SMOOTH TRANSITIONS AND SPOTLIGHTED THE IDEAS DRIVING AFRICA’S TECH FUTURE.",
     slug: "africa-technology-expo",
     mainImage: "/drive/ATE/2.jpg",
-    mainVideo: "/drive/ATE/videos/1.mp4",
+    mainVideo: "/drive/ATE/videos/1.MOV",
     eventLogo: "/images/ate/ate-logo.png",
     eventName: "AFRICA TECHNOLOGY EXPO",
     href: "/events/africa-technology-expo",
@@ -94,7 +94,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
       "I FACILITATED AS THE OFFICIAL COMPERE AND MAIN STAGE FOR THE AFRICA STARTUP FESTIVAL LAGOS, WHICH WELCOMED 3000+ ATTENDEES FROM 15 COUNTRIES, INCLUDING 50+ MEDIA AND VENTURE ANALYSTS AND 30+ INDUSTRY SPEAKING LEADERS. THE CONFERENCE FEATURES A DYNAMIC LINEUP OF SESSIONS, PANEL DISCUSSIONS, AND NETWORKING OPPOURTUNITIES —  THROUGHOUT THE CONFERENCE I MAINTAINED AN ENGAGING ATMOSPHERE AND FACILITATED KEY SEGMENTS ON THE MAIN STAGE, ENSURING A MEMORABLE EXPERIENCE FOR EVERYONE INVOLVED.",
     slug: "africa-srartup-festival",
     mainImage: "/drive/ASF/2.jpg",
-    mainVideo: "/drive/ASF/videos/1.mp4",
+    mainVideo: "/drive/ASF/videos/1.MOV",
     eventLogo: "/images/asf/asf-logo.png",
     eventName: "AFRICA STARTUP FESTIVAL",
     href: "/events/africa-srartup-festival",
@@ -199,45 +199,47 @@ export const SERVICES = [
 
 export const TESTIMONIALS_DATA = [
   {
-    avatarSrc: "/placeholder.svg?height=48&width=48", // Placeholder for avatar
-    name: "Eric L. Barnes",
-    title: "Owner of Laravel News",
+    avatarSrc: "https://picsum.photos/seed/khbk/60", // Placeholder for avatar
+    name: "Clinton Nnaemeka",
+    title: "Co-founder and CEO of Spark Africa.",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. ",
+      `Clinton here from Spark, we organize startup festivals and tech expos across the continent.
+
+I got to work with Elton as an MC on two of the events in Nigeria and it was truly a unique experience. It was the first time working with him but I don’t think it felt that way.
+
+Confidence, brilliance and charisma were through the roof.
+
+Really glad to have worked with him and if you’re having double thoughts on working with me, then this is a full endorsement to run him that check, he’d get it done, well
+`,
   },
   {
-    avatarSrc: "/placeholder.svg?height=48&width=48",
-    name: "János Horváth",
-    title: "CTO of BrokerChooser",
+    avatarSrc: "https://picsum.photos/seed/gh/60",
+    name: "Cynthia E. Chisom",
+    title: "Global Startup Advisor / VP , Ventures and Ecosystem, Spark Africa",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet.",
+      `Engaging Elton as the MC for the African Tech Expo and African Startup Festival 2024 was a remarkable decision. Though it was our first time working together, his professionalism, charm, and command of the stage were undeniable.
+The glowing feedback I received affirmed what I already saw, Elton is a class act. Courteous, composed, and effortlessly engaging. I’m honoured to have worked with him and fully endorse him
+`
   },
   {
-    avatarSrc: "/placeholder.svg?height=48&width=48",
-    name: "Gilbert Pellegrom",
-    title: "CTO of Lemon Squeezy",
+    avatarSrc: "https://picsum.photos/seed/gu/60",
+    name: "Oyin Solebo",
+    title: "Managing Director of ARM Labs Lagos Techstars Accelerator",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+      `For the second edition of the ARM Labs Lagos Techstars Accelerator Demo Day, we needed a compère who could capture and hold the attention of an audience comprising several hundred investors, senior operators, and ecosystem leaders.
+We engaged Elton, and I’m delighted to say he delivered beyond expectation. He was diligent, dynamic, and highly responsive, demonstrating a strong ability to engage the crowd while maintaining a composed and professional atmosphere. His quick thinking and initiative in adapting to last-minute changes in the agenda were particularly impressive.
+Elton also received glowing feedback from our guests, with several requesting his details for future events. If you're seeking a compère who brings both charisma and control to the stage, I recommend Elton
+`,
   },
   {
-    avatarSrc: "/placeholder.svg?height=48&width=48",
-    name: "János Horváth",
-    title: "CTO of BrokerChooser",
+    avatarSrc: "https://picsum.photos/seed/tfygjb/60",
+    name: "Gerald Black",
+    title: "CEO XConnect - Award Winning Tech Ecosystem Builder.",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Lorem ipsum dolor sit amet.",
-  },
-  {
-    avatarSrc: "/placeholder.svg?height=48&width=48",
-    name: "Gilbert Pellegrom",
-    title: "CTO of Lemon Squeezy",
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-  },
-  {
-    avatarSrc: "/placeholder.svg?height=48&width=48",
-    name: "Eric L. Barnes",
-    title: "Owner of Laravel News",
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+      `I hosted the launch of a Tunisia Tech Ecosystem Documentary in April, 2025. This event was not my first rodeo with Elton. Hence, his awesomeness— as usual— as a host was a thrill and delight.
+Contracting people as a compére is a delicate business as you never want to make a wrong choice. However, Elton was definitely the right choice for this event.
+He brought with him his wit, endearing personality, composure, and absolutely remarkably— his management skills.
+I know who to dial when I'm in need of a competent compére with great hosting skills. Thus, I recommend Elton to those in need too.
+`,
   },
 ]

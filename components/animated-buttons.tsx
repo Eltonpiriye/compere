@@ -47,7 +47,7 @@ export default function AnimatedButtons() {
           : "bottom-8 right-8 flex-col gap-2 md:gap-3"
       }`}
     >
-      {/* Contact Us Button - Attention-grabbing with pulse effect */}
+      {/* CONTACT MY TEAM Button - Attention-grabbing with pulse effect */}
       <motion.div
         className="relative"
         initial={{ scale: 1 }}
@@ -70,7 +70,7 @@ export default function AnimatedButtons() {
             isMobile ? "px-4 py-2 text-sm" : "px-6 py-3"
           } font-bold text-white bg-blue-500 rounded-full hover:bg-blue-600 transition-colors duration-300`}
         >
-          <span className="mr-2">CONTACT US</span>
+          <span className="mr-2">CONTACT MY TEAM</span>
           <ArrowUpRight size={isMobile ? 14 : 18} />
         </Link>
       </motion.div>
