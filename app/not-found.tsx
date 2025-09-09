@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,11 +11,9 @@ export default function NotFound() {
   const [highScore, setHighScore] = useState(0);
   const [level, setLevel] = useState(1);
   const [timeLeft, setTimeLeft] = useState(30);
-  const [gameActive, setGameActive] = useState(false); // user must start
-  const darkMode = true; // always dark on this page
+  const [gameActive, setGameActive] = useState(false);
   const [wrongClicks, setWrongClicks] = useState(0);
 
-  // Generate initial microphone positions (6 out of 9)
   const generateMicrophones = () => {
     const positions = Array(9).fill(false);
     const indices: number[] = [];
@@ -33,17 +31,14 @@ export default function NotFound() {
     generateMicrophones()
   );
 
-  // Load high score from localStorage
   useEffect(() => {
     const savedHighScore = localStorage.getItem("microphoneGameHighScore");
     if (savedHighScore) {
-      setHighScore(parseInt(savedHighScore, 10));
+      setHighScore(Number.parseInt(savedHighScore, 10));
     }
-    // Set dark mode
     document.documentElement.classList.add("dark");
   }, []);
 
-  // Timer effect
   useEffect(() => {
     if (timeLeft > 0 && gameActive) {
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
@@ -65,11 +60,9 @@ export default function NotFound() {
     setFoundItems(newFoundItems);
 
     if (microphonePositions[index]) {
-      // Correct click
       const points = level * 100;
       setGameScore(gameScore + points);
 
-      // Check if all microphones are found
       const foundMicrophones = newFoundItems.filter(
         (found, i) => found && microphonePositions[i]
       ).length;
@@ -77,10 +70,10 @@ export default function NotFound() {
         setLevel(level + 1);
         setFoundItems(Array(9).fill(false));
         setWrongClicks(0);
-        setTimeLeft(timeLeft + 2); // Reduced increment
+        setTimeLeft(timeLeft + 2);
+        setMicrophonePositions(generateMicrophones());
       }
     } else {
-      // Wrong click
       setWrongClicks(wrongClicks + 1);
       if (wrongClicks + 1 >= 3) {
         setGameActive(false);
@@ -97,75 +90,60 @@ export default function NotFound() {
     setGameScore(0);
     setLevel(1);
     setTimeLeft(30);
-    setGameActive(false); // don't auto-start
+    setGameActive(false);
     setWrongClicks(0);
-    // Regenerate microphone positions
     const newPositions = generateMicrophones();
     setMicrophonePositions(newPositions);
   };
 
-  // const toggleDarkMode = () => {
-  //   setDarkMode(!darkMode);
-  //   if (!darkMode) {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // };
-
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4 transition-colors duration-300">
-      <div className="max-w-2xl mx-auto text-center space-y-8">
-        {/* Header Section */}
-        <div className="space-y-4">
-          <div className="text-9xl font-black">404</div>
-          <h1 className="text-4xl font-bold">The Stage is Empty!</h1>
-          <p className="text-xl text-gray-400">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-2 sm:p-4 transition-colors duration-300">
+      <div className="max-w-2xl mx-auto text-center space-y-4 sm:space-y-8 w-full">
+        <div className="space-y-2 sm:space-y-4">
+          <div className="text-6xl sm:text-9xl font-black">404</div>
+          <h1 className="text-2xl sm:text-4xl font-bold px-4">
+            The Stage is Empty!
+          </h1>
+          <p className="text-base sm:text-xl text-gray-400 px-4">
             Oops! Looks like this gig is a no-show!
           </p>
         </div>
 
-        {/* Game Stats */}
-        <div className="flex justify-center space-x-4 text-lg font-semibold">
+        <div className="grid grid-cols-2 sm:flex sm:justify-center gap-2 sm:gap-4 text-sm sm:text-lg font-semibold px-4">
           <div>Score: {gameScore}</div>
-          <div>High Score: {highScore}</div>
+          <div>High: {highScore}</div>
           <div>Level: {level}</div>
           <div>Time: {timeLeft}s</div>
-          <div>Wrong Clicks: {wrongClicks}/3</div>
+          <div className="col-span-2 sm:col-span-1 text-center sm:text-left">
+            Wrong: {wrongClicks}/3
+          </div>
         </div>
 
-        {/* Interactive MC Illustration */}
-        <Card className="p-8 bg-gray-800 border-gray-700">
+        <Card className="p-4 sm:p-8 bg-gray-800 border-gray-700 mx-2 sm:mx-0">
           <div className="relative">
-            {/* MC Character */}
-            <div className="text-6xl mb-4">🎤</div>
-            <div
-              className={`speech-bubble p-4 rounded-lg relative mb-6 ${
-                darkMode ? "bg-gray-700" : "bg-gray-200"
-              }`}
-            >
-              <p className="font-medium text-white">
+            <div className="text-4xl sm:text-6xl mb-2 sm:mb-4">🎤</div>
+            <div className="bg-gray-700 p-3 sm:p-4 rounded-lg relative mb-4 sm:mb-6">
+              <p className="font-medium text-white text-sm sm:text-base">
                 {gameActive
-                  ? `"Find 6 hidden microphones! 3 wrong clicks and you're out!"`
-                  : `"Game Over! Too many wrong clicks or time's up. Try again?"`}
+                  ? "Find 6 hidden microphones! 3 wrong clicks and you're out!"
+                  : "Game Over! Too many wrong clicks or time's up. Try again?"}
               </p>
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full">
                 <div className="w-0 h-0 border-l-4 border-r-4 border-t-8 border-l-transparent border-r-transparent border-t-gray-700"></div>
               </div>
             </div>
 
-            {/* Gamification Element */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">
+              <h3 className="text-base sm:text-lg font-semibold">
                 🎮 Mini Game: Find the Hidden Microphones!
               </h3>
-              <div className="grid grid-cols-3 gap-4 max-w-xs mx-auto">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-[240px] sm:max-w-xs mx-auto">
                 {foundItems.map((found, index) => (
                   <button
                     key={index}
                     onClick={() => handleItemClick(index)}
                     disabled={!gameActive || found}
-                    className={`w-16 h-16 border-2 rounded-lg transition-all duration-200 hover:scale-105 flex items-center justify-center text-2xl ${
+                    className={`aspect-square border-2 rounded-lg transition-all duration-200 hover:scale-105 flex items-center justify-center text-lg sm:text-2xl ${
                       found
                         ? microphonePositions[index]
                           ? "bg-green-500 text-white"
@@ -184,14 +162,16 @@ export default function NotFound() {
 
               {!gameActive && (
                 <div className="animate-bounce">
-                  <p className="text-lg font-bold">
+                  <p className="text-base sm:text-lg font-bold">
                     🎉 Game Over! Final Score: {gameScore}
                   </p>
-                  <p className="text-sm text-red-400">
+                  <p className="text-xs sm:text-sm text-red-400">
                     {wrongClicks >= 3 ? "Too many wrong clicks!" : "Time's up!"}
                   </p>
                   {gameScore === highScore && gameScore > 0 && (
-                    <p className="text-sm text-green-400">New High Score!</p>
+                    <p className="text-xs sm:text-sm text-green-400">
+                      New High Score!
+                    </p>
                   )}
                 </div>
               )}
@@ -199,12 +179,11 @@ export default function NotFound() {
           </div>
         </Card>
 
-        {/* Game Controls */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center px-2">
           <Button
             onClick={() => setGameActive((s) => !s)}
             size="lg"
-            className="font-semibold"
+            className="font-semibold w-full sm:w-auto"
           >
             {gameActive ? "⏸️ Pause" : "▶️ Start"}
           </Button>
@@ -212,25 +191,28 @@ export default function NotFound() {
             onClick={resetGame}
             variant="outline"
             size="lg"
-            className="font-semibold"
+            className="font-semibold w-full sm:w-auto bg-transparent"
           >
             🔄 Reset
           </Button>
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg" className="font-semibold">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center px-2">
+          <Button asChild size="lg" className="font-semibold w-full sm:w-auto">
             <Link href="/">🏠 Back to Home Stage</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="font-semibold">
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="font-semibold w-full sm:w-auto bg-transparent"
+          >
             <Link href="/contact">📞 Contact the MC</Link>
           </Button>
         </div>
 
-        {/* Footer */}
-        <div className="pt-8 border-t border-gray-600">
-          <p className="text-sm text-gray-400">
+        <div className="pt-4 sm:pt-8 border-t border-gray-600 mx-4">
+          <p className="text-xs sm:text-sm text-gray-400">
             Don't worry, even the best MCs sometimes lose their script!
             <br />
             Let's get you back to where the real entertainment happens.
