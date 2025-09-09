@@ -6,7 +6,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
       "I was the compere for an exclusive gathering of over 100 top investors and mentors, and 150+ ambitious founders from across Africa. The demo day highlighted 12 startups with emerging solutions in fintech, health-tech, B2B SaaS and more – capping off a 13-week accelerator geared towards fueling the continent's next wave of innovation.",
     slug: "arm-labs-techstars",
     mainImage: "/drive/Techstars/2.jpg",
-    mainVideo: "/videos/sample-1.webm",
+    mainVideo: "/drive/Techstars/videos/1.webm",
     eventLogo: "/images/arm/techstars-logo.png",
     eventName: "ARM LABS - TECHSTARS",
     href: "/events/arm-labs-techstars",

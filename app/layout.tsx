@@ -5,6 +5,7 @@ import { HoverProvider } from "@/context/hover-context";
 import CustomCursor from "@/components/custom-cusor";
 import { TransitionProvider } from "@/components/providers/page-transition-provider";
 import Transition from "@/components/Transition";
+import OfflineGamePrompt from "@/components/offline-game-prompt";
 
 const productSans = localFont({
   src: "../public/fonts/product-sans-full/ProductSans-Thin.ttf",
@@ -43,7 +44,10 @@ export default function RootLayout({
       >
         <Transition>
           <TransitionProvider>
-            <HoverProvider>{children}</HoverProvider>
+            <HoverProvider>
+              {children}
+              <OfflineGamePrompt idleMinutes={1} />
+            </HoverProvider>
           </TransitionProvider>
         </Transition>
         <CustomCursor />

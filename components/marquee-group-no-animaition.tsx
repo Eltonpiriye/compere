@@ -32,6 +32,7 @@ export default function MarqueeGroup() {
     } else {
       startAnimation();
     }
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, [hoveredItem, isDragging, controls]);
 
   // Function to start the animation
