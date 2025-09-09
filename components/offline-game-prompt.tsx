@@ -55,13 +55,21 @@ export default function OfflineGamePrompt({ idleMinutes = 10 }: Props) {
     }
     function handleOffline() {
       setIsOffline(true);
-      setShowPrompt(true);
+      setShowGame(true);
+      setShowPrompt(false);
+      resetGame();
+      setGameActive(true);
     }
 
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
 
-    if (!navigator.onLine) setShowPrompt(true);
+    if (!navigator.onLine) {
+      setShowGame(true);
+      setShowPrompt(false);
+      resetGame();
+      setGameActive(true);
+    }
 
     const savedHighScore = localStorage.getItem("microphoneGameHighScore");
     if (savedHighScore) {
@@ -135,31 +143,36 @@ export default function OfflineGamePrompt({ idleMinutes = 10 }: Props) {
     setShowGame(true);
     setShowPrompt(false);
     resetGame();
+    setGameActive(true);
   };
 
   function startIdleCountdown() {
-    const ms = idleMinutes * 2 * 1000;
+    const ms = idleMinutes * 60 * 1000;
     if (idleTimer) clearTimeout(idleTimer);
     const t = window.setTimeout(() => {
-      setShowPrompt(true);
+      if (!isOffline) {
+        setShowPrompt(true);
+      }
     }, ms);
     setIdleTimer(t);
   }
 
   return (
     <>
-      <Dialog open={showPrompt && !showGame} onOpenChange={setShowPrompt}>
+      <Dialog
+        open={showPrompt && !showGame && !isOffline}
+        onOpenChange={setShowPrompt}
+      >
         <DialogContent className="sm:max-w-md max-w-[90vw] mx-auto">
           <DialogHeader>
             <DialogTitle className="text-lg sm:text-xl">
-              You appear to be offline
+              Take a break?
             </DialogTitle>
           </DialogHeader>
           <p className="py-4 text-sm sm:text-base">
-            You're disconnected from the internet. Would you like to play our
-            offline mini-game while you reconnect?
+            You've been idle for a while. Would you like to play our mini-game?
           </p>
-          <DialogFooter className="flex-col sm:flex-row gap-2">
+          <DialogFooter className="flex-col sm:flex-row gap-2 sm:gap-4">
             <Button onClick={startGame} className="w-full sm:w-auto">
               🎮 Play Game
             </Button>
