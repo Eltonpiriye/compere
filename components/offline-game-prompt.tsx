@@ -55,8 +55,8 @@ export default function OfflineGamePrompt({ idleMinutes = 10 }: Props) {
     }
     function handleOffline() {
       setIsOffline(true);
-      setShowGame(true);
-      setShowPrompt(false);
+      setShowPrompt(true); // Display the prompt immediately when offline
+      setShowGame(false);
       resetGame();
       setGameActive(true);
     }
@@ -65,8 +65,8 @@ export default function OfflineGamePrompt({ idleMinutes = 10 }: Props) {
     window.addEventListener("offline", handleOffline);
 
     if (!navigator.onLine) {
-      setShowGame(true);
-      setShowPrompt(false);
+      setShowPrompt(true); // Display the prompt immediately if already offline
+      setShowGame(false);
       resetGame();
       setGameActive(true);
     }
