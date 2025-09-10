@@ -47,7 +47,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 	},
 	{
 		eventDescription:
-			'I MANNED THE TWO-DAY EVENT HOSTING 4,000+ ATTENDEES (INCLUDING 20% INNOVATORS, 50% SENIOR LEADERS) AND 50+ EXHIBITORS. DAY ONE FEATURED AN INTIMATE DEVELOPER SESSION, WHILE DAY TWO EXPANDED TO BROADER INNOVATION IN TECH ECOSYSTEM, CAPPED OFF BY A HIGH-ENERGY PITCH BATTLEGROUND. ACROSS BOTH DAYS, I KEPT SESSIONS ENGAGING, ENSURED SMOOTH TRANSITIONS AND SPOTLIGHTED THE IDEAS DRIVING AFRICA’S TECH FUTURE.',
+			'I manned the two-day event hosting 4,000+ attendees (including 20% innovators, 50% senior leaders) and 50+ exhibitors. Day one featured an intimate developer session, while day two expanded to broader innovation in tech ecosystem, capped off by a high-energy pitch battleground. Across both days, I kept sessions engaging, ensured smooth transitions and spotlighted the ideas driving Africa’s tech future.',
 		slug: 'africa-technology-expo',
 		mainImage: '/drive/ATE/2.jpg',
 		mainVideo: '/drive/ATE/videos/1.MOV',
@@ -56,79 +56,79 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 		href: '/events/africa-technology-expo',
 		eventImages: [
 			{
-				src: '/images/arm/1.jpg',
+				src: '/drive/ATE/1.jpg',
 				alt: 'Speaker at ARM LABS event',
 			},
 			{
-				src: '/images/arm/2.jpg',
+				src: '/drive/ATE/2.jpg',
 				alt: 'Group celebration at Demo Day',
 			},
 			{
-				src: '/images/arm/3.jpg',
+				src: '/drive/ATE/3.jpg',
 				alt: 'Team members at ARM LABS',
 			},
 			{
-				src: '/images/arm/4.jpg',
+				src: '/drive/ATE/4.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/main.jpg',
+				src: '/drive/ATE/main.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/5.jpg',
+				src: '/drive/ATE/5.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/6.jpg',
+				src: '/drive/ATE/6.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/7.jpg',
+				src: '/drive/ATE/7.jpg',
 				alt: 'Audience at Demo Day',
 			},
 		],
 	},
 	{
 		eventDescription:
-			'I FACILITATED AS THE OFFICIAL COMPERE AND MAIN STAGE FOR THE AFRICA STARTUP FESTIVAL LAGOS, WHICH WELCOMED 3000+ ATTENDEES FROM 15 COUNTRIES, INCLUDING 50+ MEDIA AND VENTURE ANALYSTS AND 30+ INDUSTRY SPEAKING LEADERS. THE CONFERENCE FEATURES A DYNAMIC LINEUP OF SESSIONS, PANEL DISCUSSIONS, AND NETWORKING OPPOURTUNITIES —  THROUGHOUT THE CONFERENCE I MAINTAINED AN ENGAGING ATMOSPHERE AND FACILITATED KEY SEGMENTS ON THE MAIN STAGE, ENSURING A MEMORABLE EXPERIENCE FOR EVERYONE INVOLVED.',
-		slug: 'africa-srartup-festival',
+			'I facilitated as the official compere and main stage for the Africa Startup Festival Lagos, which welcomed 3000+ attendees from 15 countries, including 50+ media and venture analysts and 30+ industry speaking leaders. The conference features a dynamic lineup of sessions, panel discussions, and networking opportunities. Throughout the conference I maintained an engaging atmosphere and facilitated key segments on the main stage, ensuring a memorable experience for everyone involved.',
+		slug: 'africa-startup-festival',
 		mainImage: '/drive/ASF/2.jpg',
 		mainVideo: '/drive/ASF/videos/1.MOV',
 		eventLogo: '/images/asf/asf-logo.png',
 		eventName: 'AFRICA STARTUP FESTIVAL',
-		href: '/events/africa-srartup-festival',
+		href: '/events/africa-startup-festival',
 		eventImages: [
 			{
-				src: '/images/arm/1.jpg',
+				src: '/drive/ASF/1.jpg',
 				alt: 'Speaker at ARM LABS event',
 			},
 			{
-				src: '/images/arm/2.jpg',
+				src: '/drive/ASF/2.jpg',
 				alt: 'Group celebration at Demo Day',
 			},
 			{
-				src: '/images/arm/3.jpg',
+				src: '/drive/ASF/3.jpg',
 				alt: 'Team members at ARM LABS',
 			},
 			{
-				src: '/images/arm/4.jpg',
+				src: '/drive/ASF/4.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/main.jpg',
+				src: '/drive/ASF/main.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/5.jpg',
+				src: '/drive/ASF/5.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/6.jpg',
+				src: '/drive/ASF/6.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/7.jpg',
+				src: '/drive/ASF/7.jpg',
 				alt: 'Audience at Demo Day',
 			},
 		],
