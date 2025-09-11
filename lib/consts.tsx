@@ -7,56 +7,52 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 		slug: 'arm-labs-techstars',
 		mainImage: '/drive/Techstars/2.jpg',
 		mainVideo: '/drive/Techstars/videos/1.webm',
-		eventLogo: '/images/arm/techstars-logo.png',
+		eventLogo: '/drive/Techstars/logo.png',
 		eventName: 'ARM LABS - TECHSTARS',
 		href: '/events/arm-labs-techstars',
 		eventImages: [
 			{
-				src: '/images/arm/1.jpg',
+				src: 'drive/Techstars/1.jpg',
 				alt: 'Speaker at ARM LABS event',
 			},
 			{
-				src: '/images/arm/2.jpg',
+				src: 'drive/Techstars/2.jpg',
 				alt: 'Group celebration at Demo Day',
 			},
 			{
-				src: '/images/arm/3.jpg',
+				src: 'drive/Techstars/3.jpg',
 				alt: 'Team members at ARM LABS',
 			},
 			{
-				src: '/images/arm/4.jpg',
+				src: 'drive/Techstars/4.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/main.jpg',
+				src: 'drive/Techstars/5.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/5.jpg',
+				src: 'drive/Techstars/6.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/6.jpg',
+				src: 'drive/Techstars/7.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/7.jpg',
+				src: 'drive/Techstars/8.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/8.jpg',
+				src: 'drive/Techstars/9.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/9.jpg',
+				src: 'drive/Techstars/10.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/images/arm/10.jpg',
-				alt: 'Audience at Demo Day',
-			},
-			{
-				src: '/images/arm/11.jpg',
+				src: 'drive/Techstars/11.jpg',
 				alt: 'Audience at Demo Day',
 			},
 		],
@@ -67,7 +63,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 		slug: 'africa-technology-expo',
 		mainImage: '/drive/ATE/2.jpg',
 		mainVideo: '/drive/ATE/videos/1.MOV',
-		eventLogo: '/images/ate/ate-logo.png',
+		eventLogo: '/drive/ATE/logo.png',
 		eventName: 'AFRICA TECHNOLOGY EXPO',
 		href: '/events/africa-technology-expo',
 		eventImages: [
@@ -123,7 +119,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 		slug: 'africa-startup-festival',
 		mainImage: '/drive/ASF/2.jpg',
 		mainVideo: '/drive/ASF/videos/1.MOV',
-		eventLogo: '/images/asf/asf-logo.png',
+		eventLogo: '/drive/ASF/logo.png',
 		eventName: 'AFRICA STARTUP FESTIVAL',
 		href: '/events/africa-startup-festival',
 		eventImages: [
@@ -141,10 +137,6 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 			},
 			{
 				src: '/drive/ASF/4.jpg',
-				alt: 'Audience at Demo Day',
-			},
-			{
-				src: '/drive/ASF/main.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
@@ -199,7 +191,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 		slug: 'xconnect-africa',
 		mainImage: '/drive/X-Africa/12.jpg',
 		mainVideo: '/drive/X-Africa/videos/1.mp4',
-		eventLogo: '/images/xca/xca-logo-side.png',
+		eventLogo: '/drive/X-Africa/logo.png',
 		eventName: 'XCONNECT AFRICA',
 		href: '/events/xconnect-africa',
 		eventImages: [
@@ -265,7 +257,7 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 		eventDescription:
 			'I HAD THE PRIVILEGE OF HOSTING THE LAGOS VENTURE FINANCE SUMMIT, AN EXCLUSIVE GATHERING OF 300+ TOP INVESTORS, FOUNDERS, AND ECOSYSTEM LEADERS FROM ACROSS AFRICA. THE SUMMIT FEATURED INSIGHTFUL PANEL DISCUSSIONS, FIRESIDE CHATS, AND NETWORKING OPPORTUNITIES DESIGNED TO FOSTER COLLABORATION AND DRIVE THE CONTINENT’S VENTURE ECOSYSTEM FORWARD. THROUGHOUT THE EVENT, I ENSURED A DYNAMIC AND ENGAGING ATMOSPHERE, HIGHLIGHTING THE IDEAS AND CONNECTIONS THAT ARE SHAPING AFRICA’S FUTURE.',
 		slug: 'lagos-venture-finance-summit',
-		mainImage: '/drive/LVFS/4.jpg',
+		mainImage: '/drive/LVFS/2.jpg',
 		mainVideo: '/drive/X-Africa/videos/1.mp4',
 		eventLogo: '/drive/LVFS/logo.avif',
 		eventName: 'LAGOS VENTURE FINANCE SUMMIT',
@@ -347,43 +339,40 @@ export const SERVICES = [
 
 export const TESTIMONIALS_DATA = [
 	{
-		avatarSrc: 'https://picsum.photos/seed/khbk/60', // Placeholder for avatar
+		avatarSrc: '/drive/recommendations/nnaemeka-clinton.jpg', // Placeholder for avatar
 		name: 'Clinton Nnaemeka',
 		title: 'Co-founder and CEO of Spark Africa.',
 		quote: `Clinton here from Spark, we organize startup festivals and tech expos across the continent.
-
-I got to work with Elton as an MC on two of the events in Nigeria and it was truly a unique experience. It was the first time working with him but I don’t think it felt that way.
-
-Confidence, brilliance and charisma were through the roof.
-
-Really glad to have worked with him and if you’re having double thoughts on working with me, then this is a full endorsement to run him that check, he’d get it done, well
-`,
+		I got to work with Elton as an MC on two of the events in Nigeria and it was truly a unique experience. It was the first time working with him but I don’t think it felt that way.
+		Confidence, brilliance and charisma were through the roof.
+		Really glad to have worked with him and if you’re having double thoughts on working with me, then this is a full endorsement to run him that check, he’d get it done, well
+		`,
 	},
 	{
-		avatarSrc: 'https://picsum.photos/seed/gh/60',
+		avatarSrc: '/drive/recommendations/cynthia-chisom.jpg', // Placeholder for avatar
 		name: 'Cynthia E. Chisom',
 		title: 'Global Startup Advisor / VP , Ventures and Ecosystem, Spark Africa',
 		quote: `Engaging Elton as the MC for the African Tech Expo and African Startup Festival 2024 was a remarkable decision. Though it was our first time working together, his professionalism, charm, and command of the stage were undeniable.
-The glowing feedback I received affirmed what I already saw, Elton is a class act. Courteous, composed, and effortlessly engaging. I’m honoured to have worked with him and fully endorse him
-`,
+		The glowing feedback I received affirmed what I already saw, Elton is a class act. Courteous, composed, and effortlessly engaging. I’m honoured to have worked with him and fully endorse him
+		`,
 	},
 	{
-		avatarSrc: 'https://picsum.photos/seed/gu/60',
+		avatarSrc: '/drive/recommendations/oyin-solebo.jpg',
 		name: 'Oyin Solebo',
 		title: 'Managing Director of ARM Labs Lagos Techstars Accelerator',
 		quote: `For the second edition of the ARM Labs Lagos Techstars Accelerator Demo Day, we needed a compère who could capture and hold the attention of an audience comprising several hundred investors, senior operators, and ecosystem leaders.
-We engaged Elton, and I’m delighted to say he delivered beyond expectation. He was diligent, dynamic, and highly responsive, demonstrating a strong ability to engage the crowd while maintaining a composed and professional atmosphere. His quick thinking and initiative in adapting to last-minute changes in the agenda were particularly impressive.
-Elton also received glowing feedback from our guests, with several requesting his details for future events. If you're seeking a compère who brings both charisma and control to the stage, I recommend Elton
-`,
+		We engaged Elton, and I’m delighted to say he delivered beyond expectation. He was diligent, dynamic, and highly responsive, demonstrating a strong ability to engage the crowd while maintaining a composed and professional atmosphere. His quick thinking and initiative in adapting to last-minute changes in the agenda were particularly impressive.
+		Elton also received glowing feedback from our guests, with several requesting his details for future events. If you're seeking a compère who brings both charisma and control to the stage, I recommend Elton
+		`,
 	},
 	{
-		avatarSrc: 'https://picsum.photos/seed/tfygjb/60',
+		avatarSrc: '/drive/recommendations/gerald-black.jpg',
 		name: 'Gerald Black',
 		title: 'CEO XConnect - Award Winning Tech Ecosystem Builder.',
 		quote: `I hosted the launch of a Tunisia Tech Ecosystem Documentary in April, 2025. This event was not my first rodeo with Elton. Hence, his awesomeness— as usual— as a host was a thrill and delight.
-Contracting people as a compére is a delicate business as you never want to make a wrong choice. However, Elton was definitely the right choice for this event.
-He brought with him his wit, endearing personality, composure, and absolutely remarkably— his management skills.
-I know who to dial when I'm in need of a competent compére with great hosting skills. Thus, I recommend Elton to those in need too.
-`,
+		Contracting people as a compére is a delicate business as you never want to make a wrong choice. However, Elton was definitely the right choice for this event.
+		He brought with him his wit, endearing personality, composure, and absolutely remarkably— his management skills.
+		I know who to dial when I'm in need of a competent compére with great hosting skills. Thus, I recommend Elton to those in need too.
+		`,
 	},
 ];

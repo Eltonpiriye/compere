@@ -116,9 +116,9 @@ export default function SingleEventPageFromCms({
 	}, [isPlaying, mainVideo]); // Depend on isPlaying and mainVideo prop
 
 	return (
-		<div className='flex flex-col bg-white'>
+		<div className='flex flex-col bg-white overflow-clip'>
 			{/* Hero Section with Play Button */}
-			<section className='relative w-svw aspect-video mt-25 md:aspect-auto overflow-clip md:h-[calc(100svh-100px)] '>
+			<section className='relative aspect-video mt-25 md:aspect-auto overflow-clip md:h-[calc(100svh-100px)] '>
 				{!isPlaying ? (
 					<>
 						<Image
@@ -130,7 +130,7 @@ export default function SingleEventPageFromCms({
 						/>
 						<div className='absolute inset-0 bg-black/30 flex items-center justify-center flex-col'>
 							<motion.button
-								className='text-white text-7xl font-bold mb-4 font-tusker-grotesk tracking-wider cursor-pointer hover:scale-105 transition-transform'
+								className='text-white text-7xl font-bold mb-4 font-tusker-grotesk tracking-wider cursor-pointer transition-transform'
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.5 }}
@@ -146,7 +146,7 @@ export default function SingleEventPageFromCms({
 						{/* Blurred background video */}
 						<video
 							ref={backgroundVideoRef}
-							className='absolute inset-0 w-full h-full object-cover filter blur-xl scale-110'
+							className='absolute inset-0 w-full h-full object-cover filter blur-xl'
 							autoPlay
 							muted
 							loop
@@ -171,9 +171,6 @@ export default function SingleEventPageFromCms({
 					</div>
 				)}
 			</section>
-			{/* <div className="marquee">
-        <MarqueeGroupNoAnimation />
-      </div> */}
 			{/* Main content container */}
 			<MaxWidthWrapper>
 				<div
