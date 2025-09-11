@@ -43,6 +43,22 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 				src: '/images/arm/7.jpg',
 				alt: 'Audience at Demo Day',
 			},
+			{
+				src: '/images/arm/8.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/images/arm/9.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/images/arm/10.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/images/arm/11.jpg',
+				alt: 'Audience at Demo Day',
+			},
 		],
 	},
 	{
@@ -85,6 +101,18 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 			},
 			{
 				src: '/drive/ATE/7.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ATE/8.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ATE/9.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ATE/10.jpg',
 				alt: 'Audience at Demo Day',
 			},
 		],
@@ -131,6 +159,38 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 				src: '/drive/ASF/7.jpg',
 				alt: 'Audience at Demo Day',
 			},
+			{
+				src: '/drive/ASF/8.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ASF/9.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ASF/10.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ASF/11.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ASF/12.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ASF/13.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ASF/14.jpg',
+				alt: 'Audience at Demo Day',
+			},
+			{
+				src: '/drive/ASF/15.jpg',
+				alt: 'Audience at Demo Day',
+			},
 		],
 	},
 	{
@@ -173,6 +233,30 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 			},
 			{
 				src: '/drive/X-Africa/7.jpg',
+				alt: 'XConnect Africa Image',
+			},
+			{
+				src: '/drive/X-Africa/8.jpg',
+				alt: 'XConnect Africa Image',
+			},
+			{
+				src: '/drive/X-Africa/9.jpg',
+				alt: 'XConnect Africa Image',
+			},
+			{
+				src: '/drive/X-Africa/10.jpg',
+				alt: 'XConnect Africa Image',
+			},
+			{
+				src: '/drive/X-Africa/11.jpg',
+				alt: 'XConnect Africa Image',
+			},
+			{
+				src: '/drive/X-Africa/12.jpg',
+				alt: 'XConnect Africa Image',
+			},
+			{
+				src: '/drive/X-Africa/13.jpg',
 				alt: 'XConnect Africa Image',
 			},
 		],
@@ -229,6 +313,14 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 			},
 			{
 				src: '/drive/LVFS/10.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			{
+				src: '/drive/LVFS/11.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			{
+				src: '/drive/LVFS/12.jpg',
 				alt: 'Lagos Venture Finance Summit Image',
 			},
 		],
