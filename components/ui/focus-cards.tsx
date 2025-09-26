@@ -27,8 +27,8 @@ export const Card = React.memo(
 			<Image
 				src={card.src}
 				alt={card.title}
-				height={400}
-				width={400}
+				fill
+				priority
 				className='object-cover absolute inset-0 h-full w-full transition-transform duration-300 transform hover:scale-105'
 			/>
 			<div

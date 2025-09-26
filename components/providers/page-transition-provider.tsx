@@ -1,100 +1,102 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
 import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-} from "react";
-import { useRouter, usePathname } from "next/navigation";
-import PageTransition from "../page-transition";
+	createContext,
+	useContext,
+	useState,
+	useCallback,
+	useEffect,
+} from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import PageTransition from '../page-transition';
 
 type TransitionContextType = {
-  startTransition: (href: string) => void;
+	startTransition: (href: string) => void;
 };
 
 const TransitionContext = createContext<TransitionContextType>({
-  startTransition: () => {},
+	startTransition: () => {},
 });
 
 export const useTransition = () => {
-  return useContext(TransitionContext);
+	return useContext(TransitionContext);
 };
 
 export function TransitionProvider({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [nextPath, setNextPath] = useState<string | null>(null);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const router = useRouter();
-  const pathname = usePathname();
+	const [isTransitioning, setIsTransitioning] = useState(false);
+	const [nextPath, setNextPath] = useState<string | null>(null);
+	const [isInitialLoad, setIsInitialLoad] = useState(true);
+	const router = useRouter();
+	const pathname = usePathname();
 
-  // Handle initial page load
-  useEffect(() => {
-    if (isInitialLoad) {
-      setIsTransitioning(true);
+	// Handle initial page load
+	useEffect(() => {
+		if (isInitialLoad) {
+			setIsTransitioning(true);
 
-      // After the animation completes, set initial load to false
-      const timer = setTimeout(() => {
-        setIsInitialLoad(false);
-        setIsTransitioning(false);
-      }, 2300); // Enough time for the full animation to complete
+			// After the animation completes, set initial load to false
+			const timer = setTimeout(() => {
+				setIsInitialLoad(false);
+				setIsTransitioning(false);
+			}, 1300); // Enough time for the full animation to complete
 
-      return () => clearTimeout(timer);
-    }
-  }, [isInitialLoad]);
+			return () => clearTimeout(timer);
+		}
+	}, [isInitialLoad]);
 
-  // Handle page transitions
-  useEffect(() => {
-    if (nextPath && !isInitialLoad) {
-      // Start the transition
-      setIsTransitioning(true);
+	// Handle page transitions
+	useEffect(() => {
+		if (nextPath && !isInitialLoad) {
+			// Start the transition
+			setIsTransitioning(true);
 
-      // Navigate to the new page
-      const navigationTimer = setTimeout(() => {
-        router.push(nextPath);
+			// Navigate to the new page
+			const navigationTimer = setTimeout(() => {
+				router.push(nextPath);
 
-        // End the transition after animation completes
-        const completionTimer = setTimeout(() => {
-          setIsTransitioning(false);
-          setNextPath(null);
-        }, 800); // Allow enough time for the exit animation
+				// End the transition after animation completes
+				const completionTimer = setTimeout(() => {
+					setIsTransitioning(false);
+					setNextPath(null);
+				}, 800); // Allow enough time for the exit animation
 
-        return () => clearTimeout(completionTimer);
-      }, 400); // Time before navigation happens
+				return () => clearTimeout(completionTimer);
+			}, 400); // Time before navigation happens
 
-      return () => clearTimeout(navigationTimer);
-    }
-  }, [nextPath, router, isInitialLoad]);
+			return () => clearTimeout(navigationTimer);
+		}
+	}, [nextPath, router, isInitialLoad]);
 
-  // Reset transition state when pathname changes directly (e.g. back button)
-  useEffect(() => {
-    if (!isInitialLoad && !isTransitioning) {
-      // Reset state for next transition
-      setNextPath(null);
-    }
-  }, [pathname, isInitialLoad, isTransitioning]);
+	// Reset transition state when pathname changes directly (e.g. back button)
+	useEffect(() => {
+		if (!isInitialLoad && !isTransitioning) {
+			// Reset state for next transition
+			setNextPath(null);
+		}
+	}, [pathname, isInitialLoad, isTransitioning]);
 
-  const startTransition = useCallback(
-    (href: string) => {
-      if (href !== pathname) {
-        // Always set nextPath to trigger transition
-        setNextPath(href);
-      }
-    },
-    [pathname]
-  );
+	const startTransition = useCallback(
+		(href: string) => {
+			if (href !== pathname) {
+				// Always set nextPath to trigger transition
+				setNextPath(href);
+			}
+		},
+		[pathname]
+	);
 
-  return (
-    <TransitionContext.Provider value={{ startTransition }}>
-      {isTransitioning && <PageTransition />}
-      <div className={isInitialLoad ? "invisible" : "visible"}>{children}</div>
-    </TransitionContext.Provider>
-  );
+	return (
+		<TransitionContext.Provider value={{ startTransition }}>
+			{isTransitioning && <PageTransition />}
+			<div className={isInitialLoad ? 'invisible' : 'visible'}>
+				{children}
+			</div>
+		</TransitionContext.Provider>
+	);
 }

@@ -14,13 +14,13 @@ export default function ServicesPage() {
 		>
 			<BackgroundVideoPlayer />
 			<MaxWidthWrapper>
-				<div className='lg:mt-28 grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 pt-24 text-center md:text-left text-xl md:text-[32px] font-bold w-full'>
+				<div className='lg:mt-28 grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 pt-24 text-center md:text-left text-xl md:text-[30px] font-bold w-full'>
 					{SERVICES.map((item, index) => (
 						<div
 							key={index}
 							className='flex flex-col gap-6'
 						>
-							<h2 className='font-product-sans-bold uppercase'>
+							<h2 className='font-tusker-grotesk-bold uppercase underline inline-block text-4xl'>
 								{item.name}
 							</h2>
 							<p className=''>{item.description}</p>

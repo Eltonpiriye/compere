@@ -151,7 +151,7 @@ export default function SingleEventPageFromCms({
 							muted
 							loop
 							playsInline
-							src={mainVideo ?? '/videos/sample-2.webm'} // Use mainVideo prop
+							src={mainVideo} // Use mainVideo prop
 						/>
 						{/* Main video */}
 						<video
@@ -164,7 +164,7 @@ export default function SingleEventPageFromCms({
 							muted
 							loop
 							playsInline
-							src={mainVideo ?? '/videos/sample-2.webm'} // Use mainVideo prop
+							src={mainVideo} // Use mainVideo prop
 						>
 							Your browser does not support the video tag.
 						</video>
@@ -190,19 +190,15 @@ export default function SingleEventPageFromCms({
 							}}
 						>
 							<Image
-								src={
-									eventLogo ??
-									'/images/arm/techstars-logo.png'
-								}
-								alt={`${
-									eventName ?? 'ARM LABS - TECHSTARS'
-								} Logo`}
-								width={400}
-								height={150}
+								src={eventLogo}
+								alt={`${eventName} Logo`}
+								width={300}
+								height={300}
+								priority
 								className='object-contain h-24 md:h-36 '
 							/>
 							<h1 className='font-tusker-grotesk-bold text-9xl md:text-[300px] font-black whitespace-nowrap'>
-								{eventName ?? 'ARM LABS - TECHSTARS'}
+								{eventName}
 							</h1>
 						</motion.div>
 						<p className='mt-5 md:mt-10 px-4 md:px-12 pb-8 text-xl md:text-[32px] font-bold '>
@@ -220,7 +216,7 @@ export default function SingleEventPageFromCms({
 					{/* Image Gallery that scrolls over the text */}
 					<div
 						ref={galleryRef}
-						className='relative z-50'
+						className='relative'
 					>
 						<ImageGallery
 							images={eventImages}

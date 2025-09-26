@@ -1,91 +1,99 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation";
-import MaxWidthWrapper from "./max-width-wrapper";
-import { useMobile } from "@/hooks/use-mobile";
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import MaxWidthWrapper from './max-width-wrapper';
+import { useMobile } from '@/hooks/use-mobile';
 
 const links = [
-  { href: "/about", label: "About Me" },
-  { href: "/events", label: "Events Hosted" },
-  { href: "/recommendations", label: "Recommendations" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact My Team" },
+	{ href: '/about', label: 'About Me' },
+	{ href: '/events', label: 'Events Hosted' },
+	{ href: '/recommendations', label: 'Clients Feedback' },
+	{ href: '/services', label: 'Services' },
+	{ href: '/contact', label: 'Contact My Team' },
 ];
 
 export default function Navbar({ isWhite }: Readonly<{ isWhite?: boolean }>) {
-  const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMobile()
-  return (
-    <header
-      className={`w-svw grid font-tusker-grotesk text-3xl tracking-wider ${isOpen?"bg-black text-white":'bg-background'} ${
-        isWhite ? `text-[#EDECE8] bg-transparent` : "text-foreground"
-      } fixed z-10`}
-    >
-      <MaxWidthWrapper>
-        <div className="flex justify-between items-center py-6 ">
-          <Link href={"/"} className="font-bold">
-            ELTON PIRIYE.
-          </Link>
-          <nav>
-            <ul className="hidden md:flex space-x-6 uppercase ">
-              {links.map(({ href, label }, k) => (
-                <li key={k}>
-                  <NavbarItem href={href}>{label}</NavbarItem>
-                </li>
-              ))}
-            </ul>
-            {/* Mobile Menu Button */}
-            <div
-              className="md:hidden cursor-pointer"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X size={30} /> : <Menu size={30} />}
-            </div>
-          </nav>
-        </div>
-      </MaxWidthWrapper>
+	const [isOpen, setIsOpen] = useState(false);
+	const isMobile = useMobile();
+	return (
+		<header
+			className={`w-svw grid font-tusker-grotesk text-3xl tracking-wider ${
+				isOpen ? 'bg-black text-white' : 'bg-background'
+			} ${
+				isWhite ? `text-[#EDECE8] bg-transparent` : 'text-foreground'
+			} fixed z-10`}
+		>
+			<MaxWidthWrapper>
+				<div className='flex justify-between items-center py-6 '>
+					<Link
+						href={'/'}
+						className='font-bold'
+					>
+						ELTON PIRIYE.
+					</Link>
+					<nav>
+						<ul className='hidden md:flex space-x-6 uppercase '>
+							{links.map(({ href, label }, k) => (
+								<li key={k}>
+									<NavbarItem href={href}>{label}</NavbarItem>
+								</li>
+							))}
+						</ul>
+						{/* Mobile Menu Button */}
+						<div
+							className='md:hidden cursor-pointer'
+							onClick={() => setIsOpen(!isOpen)}
+						>
+							{isOpen ? <X size={30} /> : <Menu size={30} />}
+						</div>
+					</nav>
+				</div>
+			</MaxWidthWrapper>
 
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background"
-          >
-            <ul className="flex flex-col gap-6 min-h-svh pb-5 px-4 pt-[30px] bg-black text-white">
-              {links.map(({ href, label }, k) => (
-                <li key={k} onClick={() => setIsOpen(false)}>
-                  <NavbarItem href={href}>{label}</NavbarItem>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  );
+			{/* Mobile Navigation */}
+			<AnimatePresence>
+				{isOpen && (
+					<motion.div
+						initial={{ opacity: 0, height: 0 }}
+						animate={{ opacity: 1, height: 'auto' }}
+						exit={{ opacity: 0, height: 0 }}
+						className='md:hidden bg-background'
+					>
+						<ul className='flex flex-col gap-6 min-h-svh pb-5 px-4 pt-[30px] bg-black text-white'>
+							{links.map(({ href, label }, k) => (
+								<li
+									key={k}
+									onClick={() => setIsOpen(false)}
+								>
+									<NavbarItem href={href}>{label}</NavbarItem>
+								</li>
+							))}
+						</ul>
+					</motion.div>
+				)}
+			</AnimatePresence>
+		</header>
+	);
 }
 
 export function NavbarItem({
-  href,
-  children,
+	href,
+	children,
 }: Readonly<{ href: string; children: React.ReactNode }>) {
-  const pathname = usePathname();
+	const pathname = usePathname();
 
-  return (
-    <Link
-      href={href}
-      className={`hover:line-through ${
-        pathname.startsWith(href) ? "line-through" : ""
-      } font-bold uppercase`}
-    >
-      {children}
-    </Link>
-  );
+	return (
+		<Link
+			href={href}
+			className={`hover:line-through ${
+				pathname.startsWith(href) ? 'line-through' : ''
+			} font-bold uppercase`}
+		>
+			{children}
+		</Link>
+	);
 }

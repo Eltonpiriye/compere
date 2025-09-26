@@ -59,7 +59,7 @@ export default function TestimonialCard({
 					isHovered ? 'font-bold' : ''
 				}`}
 			>
-				<CardContent className='p-6 relative z-10'>
+				<CardContent className='p-6 relative '>
 					<motion.div
 						className='flex items-center mb-4'
 						animate={{
