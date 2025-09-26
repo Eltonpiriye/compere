@@ -61,50 +61,50 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 		eventDescription:
 			'I manned the two-day event hosting 4,000+ attendees (including 20% innovators, 50% senior leaders) and 50+ exhibitors. Day one featured an intimate developer session, while day two expanded to broader innovation in tech ecosystem, capped off by a high-energy pitch battleground. Across both days, I kept sessions engaging, ensured smooth transitions and spotlighted the ideas driving Africa’s tech future.',
 		slug: 'africa-technology-expo',
-		mainImage: '/drive/ate/2.jpg',
-		mainVideo: '/drive/ate/videos/1.webm',
-		eventLogo: '/drive/ate/logo.png',
+		mainImage: '/drive/ATE-IMAGES/2.jpg',
+		mainVideo: '/drive/ATE-IMAGES/videos/1.webm',
+		eventLogo: '/drive/ATE-IMAGES/logo.png',
 		eventName: 'AFRICA TECHNOLOGY EXPO',
 		href: '/events/africa-technology-expo',
 		eventImages: [
 			{
-				src: '/drive/ate/1.jpg',
+				src: '/drive/ATE-IMAGES/1.jpg',
 				alt: 'Speaker at ARM LABS event',
 			},
 			{
-				src: '/drive/ate/2.jpg',
+				src: '/drive/ATE-IMAGES/2.jpg',
 				alt: 'Group celebration at Demo Day',
 			},
 			{
-				src: '/drive/ate/3.jpg',
+				src: '/drive/ATE-IMAGES/3.jpg',
 				alt: 'Team members at ARM LABS',
 			},
 			{
-				src: '/drive/ate/4.jpg',
+				src: '/drive/ATE-IMAGES/4.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/ate/5.jpg',
+				src: '/drive/ATE-IMAGES/5.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/ate/6.jpg',
+				src: '/drive/ATE-IMAGES/6.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/ate/7.jpg',
+				src: '/drive/ATE-IMAGES/7.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/ate/8.jpg',
+				src: '/drive/ATE-IMAGES/8.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/ate/9.jpg',
+				src: '/drive/ATE-IMAGES/9.jpg',
 				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/ate/10.jpg',
+				src: '/drive/ATE-IMAGES/10.jpg',
 				alt: 'Audience at Demo Day',
 			},
 		],

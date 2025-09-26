@@ -121,12 +121,10 @@ export default function SingleEventPageFromCms({
 			<section className='relative aspect-video mt-25 md:aspect-auto overflow-clip md:h-[calc(100svh-100px)] '>
 				{!isPlaying ? (
 					<>
-						<Image
-							src={mainImage ?? '/images/arm/main.jpg'}
+						<img
+							src={mainImage}
 							alt='ARM LABS Event'
-							fill
 							className='object-cover'
-							priority
 						/>
 						<div className='absolute inset-0 bg-black/30 flex items-center justify-center flex-col'>
 							<motion.button
