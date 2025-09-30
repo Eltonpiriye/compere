@@ -1,6 +1,6 @@
 import MarqueeGroup from '@/components/marquee-group';
 import MaxWidthWrapper from '@/components/max-width-wrapper';
-import { Linkedin, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, MessageSquare, Phone } from 'lucide-react';
 import Image from 'next/image';
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
 								<Mail className='h-6 w-6 text-white' />
 							</div>
 							<div>
-								<p className='text-2xl font-bold uppercase text-white mb-1'>
+								<p className='text-2xl font-bold  text-white mb-1'>
 									Email
 								</p>
 								<a
@@ -37,7 +37,7 @@ export default function ContactPage() {
 								<Phone className='h-6 w-6 text-white' />
 							</div>
 							<div>
-								<p className='text-2xl font-bold uppercase text-white mb-1'>
+								<p className='text-2xl font-bold  text-white mb-1'>
 									Phone Number
 								</p>
 								<a
@@ -49,22 +49,40 @@ export default function ContactPage() {
 							</div>
 						</div>
 
+						{/* Whatsapp Number */}
+						<div className='grid'>
+							<div className='bg-blue-600 p-3 mb-1 h-12 w-12 mr-4'>
+								<MessageSquare className='h-6 w-6 text-white' />
+							</div>
+							<div>
+								<p className='text-2xl font-bold  text-white mb-1'>
+									Whatsapp Number
+								</p>
+								<a
+									href='http://Wa.me//+2349029322866'
+									className='text-2xl text-white hover:underline'
+								>
+									+2349029322866
+								</a>
+							</div>
+						</div>
+
 						{/* LinkedIn */}
 						<div className='grid'>
 							<div className='bg-blue-600 p-3 mb-1 h-12 w-12 mr-4'>
 								<Linkedin className='h-6 w-6 text-white' />
 							</div>
 							<div>
-								<p className='text-2xl font-bold uppercase text-white mb-1'>
+								<p className='text-2xl font-bold  text-white mb-1'>
 									LinkedIn
 								</p>
 								<a
-									href='https://www.linkedin.com/in/elton-oshodipe-84064116'
+									href='https://www.linkedin.com/in/elton-oshodipe-840641176'
 									target='_blank'
 									rel='noopener noreferrer'
 									className='text-2xl text-white hover:underline break-all'
 								>
-									https://www.linkedin.com/in/elton-oshodipe-84064116
+									https://www.linkedin.com/in/elton-oshodipe-840641176
 								</a>
 							</div>
 						</div>
@@ -73,7 +91,7 @@ export default function ContactPage() {
 					{/* Right Column: Image */}
 					<div className='relative h-[350px] lg:h-[500px] w-full rounded-lg overflow-hidden'>
 						<Image
-							src='/images/elton.png'
+							src='/drive/LVFS/16.jpg'
 							alt='Elton Piriye'
 							fill
 							className='object-contain object-center'

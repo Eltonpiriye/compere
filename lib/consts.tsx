@@ -3,7 +3,7 @@ import { SingleEventPageFromCmsProps } from '@/components/single-event';
 export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 	{
 		eventDescription:
-			"I was the compere for an exclusive gathering of over 100 top investors and mentors, and 150+ ambitious founders from across Africa. The demo day highlighted 12 startups with emerging solutions in fintech, health-tech, B2B SaaS and more – capping off a 13-week accelerator geared towards fueling the continent's next wave of innovation.",
+			"I was the compere for an exclusive gathering of over 100 top investors and mentors, and 150+ ambitious founders from across Africa. The demo day highlighted 12 startups with emerging solutions in fintech, health-tech, B2B SaaS and more, capping off a 13-week accelerator geared towards fueling the continent's next wave of innovation.",
 		slug: 'arm-labs-techstars',
 		mainImage: '/drive/Techstars/2.jpg',
 		mainVideo: '/drive/Techstars/videos/1.webm',
@@ -59,54 +59,86 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 	},
 	{
 		eventDescription:
-			'I manned the two-day event hosting 4,000+ attendees (including 20% innovators, 50% senior leaders) and 50+ exhibitors. Day one featured an intimate developer session, while day two expanded to broader innovation in tech ecosystem, capped off by a high-energy pitch battleground. Across both days, I kept sessions engaging, ensured smooth transitions and spotlighted the ideas driving Africa’s tech future.',
-		slug: 'africa-technology-expo',
-		mainImage: '/drive/ATE-IMAGES/2.jpg',
-		mainVideo: '/drive/ATE-IMAGES/videos/1.webm',
-		eventLogo: '/drive/ATE-IMAGES/logo.png',
-		eventName: 'AFRICA TECHNOLOGY EXPO',
-		href: '/events/africa-technology-expo',
+			'I had the privilege of hosting the Lagos Venture Finance Summit, an exclusive gathering of 300+ top investors, founders, and ecosystem leaders from across Africa. The summit featured insightful panel discussions, fireside chats, and networking opportunities designed to foster collaboration and drive the continent’s venture ecosystem forward. Throughout the event, I ensured a dynamic and engaging atmosphere, highlighting the ideas and connections that are shaping Africa’s future.',
+		slug: 'lagos-venture-finance-summit',
+		mainImage: '/drive/LVFS/2.jpg',
+		mainVideo: '/drive/LVFS/videos/1.webm',
+		eventLogo: '/drive/LVFS/logo.avif',
+		eventName: 'LAGOS VENTURE FINANCE SUMMIT',
+		href: '/events/lagos-venture-finance-summit',
 		eventImages: [
 			{
-				src: '/drive/ATE-IMAGES/1.jpg',
-				alt: 'Speaker at ARM LABS event',
+				src: '/drive/LVFS/1.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/2.jpg',
-				alt: 'Group celebration at Demo Day',
+				src: '/drive/LVFS/2.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/3.jpg',
-				alt: 'Team members at ARM LABS',
+				src: '/drive/LVFS/3.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/4.jpg',
-				alt: 'Audience at Demo Day',
+				src: '/drive/LVFS/4.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/5.jpg',
-				alt: 'Audience at Demo Day',
+				src: '/drive/LVFS/8.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/6.jpg',
-				alt: 'Audience at Demo Day',
+				src: '/drive/LVFS/5.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/7.jpg',
-				alt: 'Audience at Demo Day',
+				src: '/drive/LVFS/6.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/8.jpg',
-				alt: 'Audience at Demo Day',
+				src: '/drive/LVFS/7.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/9.jpg',
-				alt: 'Audience at Demo Day',
+				src: '/drive/LVFS/8.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
 			{
-				src: '/drive/ATE-IMAGES/10.jpg',
-				alt: 'Audience at Demo Day',
+				src: '/drive/LVFS/9.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
 			},
+			{
+				src: '/drive/LVFS/10.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			{
+				src: '/drive/LVFS/11.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			{
+				src: '/drive/LVFS/12.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			{
+				src: '/drive/LVFS/13.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			{
+				src: '/drive/LVFS/14.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			{
+				src: '/drive/LVFS/15.jpg',
+				alt: 'Lagos Venture Finance Summit Image',
+			},
+			// {
+			// 	src: '/drive/LVFS/16.jpg',
+			// 	alt: 'Lagos Venture Finance Summit Image',
+			// },
+			// {
+			// 	src: '/drive/LVFS/17.jpg',
+			// 	alt: 'Lagos Venture Finance Summit Image',
+			// },
 		],
 	},
 	{
@@ -251,85 +283,53 @@ export const EVENT_LIST: SingleEventPageFromCmsProps[] = [
 	},
 	{
 		eventDescription:
-			'I HAD THE PRIVILEGE OF HOSTING THE LAGOS VENTURE FINANCE SUMMIT, AN EXCLUSIVE GATHERING OF 300+ TOP INVESTORS, FOUNDERS, AND ECOSYSTEM LEADERS FROM ACROSS AFRICA. THE SUMMIT FEATURED INSIGHTFUL PANEL DISCUSSIONS, FIRESIDE CHATS, AND NETWORKING OPPORTUNITIES DESIGNED TO FOSTER COLLABORATION AND DRIVE THE CONTINENT’S VENTURE ECOSYSTEM FORWARD. THROUGHOUT THE EVENT, I ENSURED A DYNAMIC AND ENGAGING ATMOSPHERE, HIGHLIGHTING THE IDEAS AND CONNECTIONS THAT ARE SHAPING AFRICA’S FUTURE.',
-		slug: 'lagos-venture-finance-summit',
-		mainImage: '/drive/LVFS/2.jpg',
-		mainVideo: '/drive/LVFS/videos/1.webm',
-		eventLogo: '/drive/LVFS/logo.avif',
-		eventName: 'LAGOS VENTURE FINANCE SUMMIT',
-		href: '/events/lagos-venture-finance-summit',
+			'I manned the two-day event hosting 4,000+ attendees (including 20% innovators, 50% senior leaders) and 50+ exhibitors. Day one featured an intimate developer session, while day two expanded to broader innovation in tech ecosystem, capped off by a high-energy pitch battleground. Across both days, I kept sessions engaging, ensured smooth transitions and spotlighted the ideas driving Africa’s tech future.',
+		slug: 'africa-technology-expo',
+		mainImage: '/drive/ATE-IMAGES/2.jpg',
+		mainVideo: '/drive/ATE-IMAGES/videos/1.webm',
+		eventLogo: '/drive/ATE-IMAGES/logo.png',
+		eventName: 'AFRICA TECHNOLOGY EXPO',
+		href: '/events/africa-technology-expo',
 		eventImages: [
 			{
-				src: '/drive/LVFS/1.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/1.jpg',
+				alt: 'Speaker at ARM LABS event',
 			},
 			{
-				src: '/drive/LVFS/2.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/2.jpg',
+				alt: 'Group celebration at Demo Day',
 			},
 			{
-				src: '/drive/LVFS/3.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/3.jpg',
+				alt: 'Team members at ARM LABS',
 			},
 			{
-				src: '/drive/LVFS/4.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/4.jpg',
+				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/LVFS/8.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/5.jpg',
+				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/LVFS/5.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/6.jpg',
+				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/LVFS/6.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/7.jpg',
+				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/LVFS/7.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/8.jpg',
+				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/LVFS/8.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/9.jpg',
+				alt: 'Audience at Demo Day',
 			},
 			{
-				src: '/drive/LVFS/9.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/10.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/11.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/12.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/13.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/14.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/15.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/16.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
-			},
-			{
-				src: '/drive/LVFS/17.jpg',
-				alt: 'Lagos Venture Finance Summit Image',
+				src: '/drive/ATE-IMAGES/10.jpg',
+				alt: 'Audience at Demo Day',
 			},
 		],
 	},
@@ -376,7 +376,7 @@ export const TESTIMONIALS_DATA = [
 	{
 		avatarSrc: '/drive/recommendations/henry-ogbuagu.png',
 		name: 'Henry Ogbuagu',
-		title: 'CEO of Tech (ask Elton)',
+		title: 'CEO of Vencap',
 		quote: `Lagos Venture Finance Summit was a huge success, thanks to Elton our MC for the event. I have known Elton for a while and seeing what he does with events,
 		I was excited to have him MC for us at LVF Summit. His ability to engage the audience is exceptional and while I was not sure how he will manage an investor audience,
 		he was exceptional and so articulate in all the intros and commentaries, he just knows what to say at each point in time and most of all he was very aligned with the event
